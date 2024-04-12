@@ -8,6 +8,8 @@ import listPlugin from '@fullcalendar/list'
 import { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon, ExclamationTriangleIcon } from "@heroicons/react/16/solid";
+import DeleteDialog from "@/components/deleteTodoDialog";
+import CreateTodoDialog from "@/components/createTodoDialog";
 
 
 interface Todo {
@@ -19,102 +21,103 @@ interface Todo {
 
 export default function Home() {
 
-    const [todos, setTodos] = useState([
-      { title: 'todo1' , id: '1' },
-      { title: 'todo2' , id: '2' },
-      { title: 'todo3' , id: '3' },
-      { title: 'todo4' , id: '4' },
-      { title: 'todo5' , id: '5' },
-    ])
-    const [allTodos, setAllTodos] = useState<Todo[]>([])
-    const [showModal, setShowModal] = useState(false)
-    const [showDeleteModal, setShowDeleteModal] = useState(false)
-    const [idToDelete, setIdToDelete] = useState<number | null>(null)
-    const [newTodo, setNewTodo] = useState<Todo>({ 
+  const [todos, setTodos] = useState([
+    { title: 'todo1', id: '1' },
+    { title: 'todo2', id: '2' },
+    { title: 'todo3', id: '3' },
+    { title: 'todo4', id: '4' },
+    { title: 'todo5', id: '5' },
+  ])
+  const [allTodos, setAllTodos] = useState<Todo[]>([])
+  const [showCreateModal, setShowCreateModal] = useState(false)
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [idToDelete, setIdToDelete] = useState<number | null>(null)
+  const [newTodo, setNewTodo] = useState<Todo>({
+    id: 0,
+    title: '',
+    start: '',
+    allDay: false,
+  })
+
+  useEffect(() => {
+    let draggableEl = document.getElementById('draggable-el')
+    if (draggableEl) {
+      new Draggable(draggableEl, {
+        itemSelector: ".fc-event",
+        eventData: function (todoEl) {
+          let id = todoEl.getAttribute("data")
+          let title = todoEl.getAttribute("title")
+          let start = todoEl.getAttribute("start")
+
+          return { id, title, start }
+        }
+      })
+    }
+  }, [])
+
+
+
+  const handleDateClick = (arg: { date: Date, allDay: boolean }) => {       // id mss later nog op andere manier doen
+    setNewTodo({ ...newTodo, start: arg.date, allDay: arg.allDay, id: new Date().getTime() })
+    setShowCreateModal(true)
+  }
+
+  const addTodo = (data: DropArg) => {       // id mss later nog op andere manier doen
+    console.log("DATA", data)
+    const todo = {
+      ...newTodo,
+      id: new Date().getTime(),
+      title: data.draggedEl.innerText,
+      allDay: data.allDay,
+      start: data.date.toISOString(),
+    }
+
+    setAllTodos([...allTodos, todo])
+  }
+
+  const handleDeleteModal = (data: { event: { id: string } }) => {
+    setShowDeleteModal(true)
+    setIdToDelete(Number(data.event.id))
+  }
+
+  const handleDelete = () => {
+    setAllTodos(allTodos.filter(todo => Number(todo.id) !== Number(idToDelete)))
+    setShowDeleteModal(false)
+    setIdToDelete(null)
+  }
+
+  const handleCloseModal = () => {
+    setShowCreateModal(false)
+    setNewTodo({
       id: 0,
-      title: '' ,
+      title: '',
       start: '',
       allDay: false,
     })
+    setShowDeleteModal(false)
+    setIdToDelete(null)
 
-    useEffect(() => {
-      let draggableEl = document.getElementById('draggable-el')
-      if (draggableEl){
-        new Draggable(draggableEl, {
-          itemSelector: ".fc-event",
-          eventData: function(todoEl){
-            let id = todoEl.getAttribute("data")
-            let title = todoEl.getAttribute("title")
-            let start = todoEl.getAttribute("start")
+  }
 
-            return {id, title, start}
-          }
-        })
-      }
-    }, [])
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setNewTodo({
+      ...newTodo,
+      title: e.target.value
+    })
+  }
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setAllTodos([...allTodos, newTodo])
+    setShowCreateModal(false)
+    setNewTodo({
+      id: 0,
+      title: '',
+      start: '',
+      allDay: false,
+    })
+  }
 
-
-    const handleDateClick = (arg: {date: Date, allDay: boolean}) => {       // id mss later nog op andere manier doen
-      setNewTodo({...newTodo,  start: arg.date, allDay: arg.allDay, id: new Date().getTime() })
-      setShowModal(true)
-    }
-
-    const addTodo = (data: DropArg) => {       // id mss later nog op andere manier doen
-      console.log("DATA", data)
-      const todo = {...newTodo, 
-          id: new Date().getTime(), 
-          title: data.draggedEl.innerText,
-          allDay: data.allDay,
-          start: data.date.toISOString(),   
-        }
-
-        setAllTodos([...allTodos, todo])
-    }
-
-    const handleDeleteModal = (data: { event: { id: string } }) => {
-      setShowDeleteModal(true)
-      setIdToDelete(Number(data.event.id))
-    }
-
-    const handleDelete = () => {
-      setAllTodos(allTodos.filter(todo => Number(todo.id) !== Number(idToDelete)))
-      setShowDeleteModal(false)
-      setIdToDelete(null)
-    } 
-
-    const handleCloseModal = () => {
-      setShowModal(false)
-      setNewTodo( {
-        id: 0,
-        title: '' ,
-        start: '',
-        allDay: false,
-      })
-      setShowDeleteModal(false)
-      setIdToDelete(null)
-
-    }
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-      setNewTodo({
-        ...newTodo,
-        title: e.target.value
-      })
-    }
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement> ) => {
-      e.preventDefault()
-      setAllTodos([...allTodos, newTodo])
-      setShowModal(false)
-      setNewTodo( {
-        id: 0,
-        title: '' ,
-        start: '',
-        allDay: false,
-      })
-    }
-    
   return (
 
     <>
@@ -124,23 +127,21 @@ export default function Home() {
       </nav>
 
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      
-      <div className="grid grid-cols-10">
-        <div className="col-span-8">
+        <div className="grid grid-cols-10">
+          <div className="col-span-8">
 
             <FullCalendar
               plugins={[
                 dayGridPlugin,
                 interactionPlugin,
                 timeGridPlugin,
-                listPlugin 
+                listPlugin
               ]}
               headerToolbar={{
                 left: 'prev,next today',
                 center: 'title',
                 right: 'timeGridWeek,dayGridMonth,listWeek'
               }}
-
               events={allTodos}
               initialView='timeGridWeek'
               nowIndicator={true}
@@ -151,180 +152,32 @@ export default function Home() {
               dateClick={handleDateClick}
               drop={(data) => addTodo(data)}
               eventClick={(data) => handleDeleteModal(data)}
-            
             />
+          </div>
 
+          <div id="draggable-el" className="ml-8 w-full border-2 p-2 rounded-md mt-16 lg:h-1/2 bg-violet-50">
+            <h1 className="font-bold text-lg text-center">Drag Todo's</h1>
+            {
+              todos.map(todo => (
+                <div
+                  className="fc-event border-2 p-1 m-2 w-full rounded-md ml-auto text-center bg-white"
+                  title={todo.title}
+                  key={todo.id}
+                >
+                  {todo.title}
+
+                </div>
+              ))
+            }
+          </div>
         </div>
 
-                <div id="draggable-el" className="ml-8 w-full border-2 p-2 rounded-md mt-16 lg:h-1/2 bg-violet-50">
-                    <h1 className="font-bold text-lg text-center">Drag Todo's</h1>
-                    {
-                      todos.map(todo => (
-                        <div
-                          className="fc-event border-2 p-1 m-2 w-full rounded-md ml-auto text-center bg-white"
-                          title={todo.title}
-                          key={todo.id}
-                        >
-                          {todo.title}
+        <DeleteDialog {...{ showDeleteModal, setShowDeleteModal, handleDelete, handleCloseModal }} />
 
-                        </div>
-                      ))
-                    }
-                </div>
-
-      </div>
-
-            <Transition.Root show={showDeleteModal} as={Fragment}>
-              <Dialog as="div" className="relative z-10" onClose={setShowDeleteModal}>
-                <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0"
-                enterTo="opacity-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
-                >
-                  <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-                
-                
-                </Transition.Child>
-
-                <div className="fixed inset-0 z-10 overflow-y-auto">
-                  <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                  
-                  <Transition.Child
-                    as={Fragment}
-                    enter="ease-out duration-300"
-                    enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                    enterTo="opacity-100 translate-y-0 sm:scale-100"
-                    leave="ease-in duration-200"
-                    leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                    leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                  >
-
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg
-                   bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg"
-                  >
-                    <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                      <div className="sm:flex sm:items-start">
-                        <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center 
-                      justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                          <ExclamationTriangleIcon className="h-6 w-6 text-red-600" aria-hidden="true" />
-                        </div>
-                        <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                          <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">
-                            Delete Event
-                          </Dialog.Title>
-                          <div className="mt-2">
-                            <p className="text-sm text-gray-500">
-                             Ben je zeker dat je dit event wil verwijderen??
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                      <button type="button" className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm 
-                      font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto" 
-                      onClick={handleDelete}>
-                        Verwijder
-                      </button>
-                      <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 
-                      shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                        onClick={handleCloseModal}
-                      >
-                        Annnuleer
-                      </button>
-                    </div>
-                  </Dialog.Panel>
-
-                </Transition.Child>
-
-                  </div>
-                </div>
-
-              </Dialog>
-            </Transition.Root>  
-
-{  
-////////////////////////////////////////////////////////////////////////////////////////////////
-}
-<Transition.Root show={showModal} as={Fragment}>
-          <Dialog as="div" className="relative z-10" onClose={setShowModal}>
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
-              <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-            </Transition.Child>
-
-            <div className="fixed inset-0 z-10 overflow-y-auto">
-              <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                <Transition.Child
-                  as={Fragment}
-                  enter="ease-out duration-300"
-                  enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                  enterTo="opacity-100 translate-y-0 sm:scale-100"
-                  leave="ease-in duration-200"
-                  leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                  leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                >
-                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                    <div>
-                      <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-                        <CheckIcon className="h-6 w-6 text-green-600" aria-hidden="true" />
-                      </div>
-                      <div className="mt-3 text-center sm:mt-5">
-                        <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">
-                          Add Event
-                        </Dialog.Title>
-                        <form action="submit" onSubmit={handleSubmit}>
-                          <div className="mt-2">
-                            <input type="text" name="title" className="block w-full rounded-md border-0 py-1.5 text-gray-900 
-                            shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 
-                            focus:ring-2 
-                            focus:ring-inset focus:ring-violet-600 
-                            sm:text-sm sm:leading-6"
-                              value={newTodo.title} onChange={(e) => handleChange(e)} placeholder="Title" />
-                          </div>
-                          <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
-                            <button
-                              type="submit"
-                              className="inline-flex w-full justify-center rounded-md bg-violet-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-violet-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 sm:col-start-2 disabled:opacity-25"
-                              disabled={newTodo.title === ''}
-                            >
-                              Create
-                            </button>
-                            <button
-                              type="button"
-                              className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0"
-                              onClick={handleCloseModal}
-
-                            >
-                              Cancel
-                            </button>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </Dialog.Panel>
-                </Transition.Child>
-              </div>
-            </div>
-          </Dialog>
-        </Transition.Root>
-
+        <CreateTodoDialog {...{ newTodo, showCreateModal, setShowCreateModal, handleSubmit, handleChange, handleCloseModal }} />
 
       </main>
 
     </>
-
-    
   );
 }
