@@ -10,6 +10,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon, ExclamationTriangleIcon } from "@heroicons/react/16/solid";
 import DeleteDialog from "@/components/deleteTodoDialog";
 import CreateTodoDialog from "@/components/createTodoDialog";
+import ShowTodoDialog from "@/components/showTodoDialog";
 
 
 interface Todo {
@@ -31,6 +32,7 @@ export default function Home() {
   const [allTodos, setAllTodos] = useState<Todo[]>([])
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [showDisplayModal, setShowDisplayModal] = useState(false)
   const [idToDelete, setIdToDelete] = useState<number | null>(null)
   const [newTodo, setNewTodo] = useState<Todo>({
     id: 0,
@@ -80,6 +82,10 @@ export default function Home() {
     setIdToDelete(Number(data.event.id))
   }
 
+  const handleShowModal = (data: { event: { id: string } }) => {
+    setShowDisplayModal(true)
+  }
+
   const handleDelete = () => {
     setAllTodos(allTodos.filter(todo => Number(todo.id) !== Number(idToDelete)))
     setShowDeleteModal(false)
@@ -126,8 +132,8 @@ export default function Home() {
         <h1 className="font-bold text-2xl text-gray-700"> Calendar</h1>
       </nav>
 
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <div className="grid grid-cols-10">
+      <main className="flex min-h-screen flex-col items-center justify-between p-5">
+        <div className="fc-view grid grid-cols-10">
           <div className="col-span-8">
 
             <FullCalendar
@@ -151,7 +157,7 @@ export default function Home() {
               selectMirror={true}
               dateClick={handleDateClick}
               drop={(data) => addTodo(data)}
-              eventClick={(data) => handleDeleteModal(data)}
+              eventClick={(data) => handleShowModal(data)}
             />
           </div>
 
@@ -176,6 +182,7 @@ export default function Home() {
 
         <CreateTodoDialog {...{ newTodo, showCreateModal, setShowCreateModal, handleSubmit, handleChange, handleCloseModal }} />
 
+        <ShowTodoDialog {...{showDisplayModal, setShowDisplayModal } }></ShowTodoDialog>
       </main>
 
     </>
