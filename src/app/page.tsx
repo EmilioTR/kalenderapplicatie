@@ -11,11 +11,13 @@ import { CheckIcon, ExclamationTriangleIcon } from "@heroicons/react/16/solid";
 import DeleteDialog from "@/components/deleteTodoDialog";
 import CreateTodoDialog from "@/components/createTodoDialog";
 import ShowTodoDialog from "@/components/showTodoDialog";
+import { EventSourceInput } from "@fullcalendar/core/index.js";
 
 
 interface Todo {
   id: number;
   title: string;
+  description: string;
   start: Date | string;
   allDay: boolean;
 }
@@ -23,21 +25,23 @@ interface Todo {
 export default function Home() {
 
   const [todos, setTodos] = useState([
-    { title: 'todo1', id: '1' },
-    { title: 'todo2', id: '2' },
-    { title: 'todo3', id: '3' },
-    { title: 'todo4', id: '4' },
-    { title: 'todo5', id: '5' },
+    { title: 'todo1', description: 'beschrijving', id: '1' },
+    { title: 'todo2', description: 'beschrijving', id: '2' },
+    { title: 'todo3', description: 'beschrijving', id: '3' },
+    { title: 'todo4', description: 'beschrijving', id: '4' },
+    { title: 'todo5', description: 'beschrijving', id: '5' },
   ])
   const [allTodos, setAllTodos] = useState<Todo[]>([])
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [showDisplayModal, setShowDisplayModal] = useState(false)
   const [idToDelete, setIdToDelete] = useState<number | null>(null)
+  const [selectedTodo, setSelectedTodo] = useState<Todo | null>(null)
   const [newTodo, setNewTodo] = useState<Todo>({
     id: 0,
     title: '',
     start: '',
+    description: '',
     allDay: false,
   })
 
@@ -49,9 +53,10 @@ export default function Home() {
         eventData: function (todoEl) {
           let id = todoEl.getAttribute("data")
           let title = todoEl.getAttribute("title")
+          let description = todoEl.getAttribute("description")
           let start = todoEl.getAttribute("start")
-
-          return { id, title, start }
+          
+          return { id, title, start, description }
         }
       })
     }
@@ -70,6 +75,7 @@ export default function Home() {
       ...newTodo,
       id: new Date().getTime(),
       title: data.draggedEl.innerText,
+      description: data.draggedEl.innerText,
       allDay: data.allDay,
       start: data.date.toISOString(),
     }
@@ -77,13 +83,16 @@ export default function Home() {
     setAllTodos([...allTodos, todo])
   }
 
-  const handleDeleteModal = (data: { event: { id: string } }) => {
+  const handleDeleteModal = (data: any) => {
+    console.log(data)
     setShowDeleteModal(true)
-    setIdToDelete(Number(data.event.id))
+    setIdToDelete(Number(data.id))
   }
 
   const handleShowModal = (data: { event: { id: string } }) => {
     setShowDisplayModal(true)
+    console.log(data)
+    setSelectedTodo(allTodos.filter(todo => Number(todo.id) === Number(data.event.id))[0])
   }
 
   const handleDelete = () => {
@@ -98,6 +107,7 @@ export default function Home() {
       id: 0,
       title: '',
       start: '',
+      description: '',
       allDay: false,
     })
     setShowDeleteModal(false)
@@ -112,6 +122,13 @@ export default function Home() {
     })
   }
 
+  const handleChangeDescr = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setNewTodo({
+      ...newTodo,
+      description: e.target.value
+    })
+  }
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setAllTodos([...allTodos, newTodo])
@@ -119,6 +136,7 @@ export default function Home() {
     setNewTodo({
       id: 0,
       title: '',
+      description: '',
       start: '',
       allDay: false,
     })
@@ -148,7 +166,7 @@ export default function Home() {
                 center: 'title',
                 right: 'timeGridWeek,dayGridMonth,listWeek'
               }}
-              events={allTodos}
+              events={allTodos as EventSourceInput}
               initialView='timeGridWeek'
               nowIndicator={true}
               editable={true}
@@ -180,9 +198,9 @@ export default function Home() {
 
         <DeleteDialog {...{ showDeleteModal, setShowDeleteModal, handleDelete, handleCloseModal }} />
 
-        <CreateTodoDialog {...{ newTodo, showCreateModal, setShowCreateModal, handleSubmit, handleChange, handleCloseModal }} />
+        <CreateTodoDialog {...{ newTodo, showCreateModal, setShowCreateModal, handleSubmit, handleChange, handleChangeDescr, handleCloseModal }} />
 
-        <ShowTodoDialog {...{showDisplayModal, setShowDisplayModal } }></ShowTodoDialog>
+        <ShowTodoDialog {...{selectedTodo, showDisplayModal, setShowDisplayModal, handleDeleteModal } }></ShowTodoDialog>
       </main>
 
     </>
