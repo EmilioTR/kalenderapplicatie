@@ -12,6 +12,11 @@ import DeleteDialog from "@/components/deleteTodoDialog";
 import CreateTodoDialog from "@/components/createTodoDialog";
 import ShowTodoDialog from "@/components/showTodoDialog";
 import { Calendar, EventSourceInput } from "@fullcalendar/core/index.js";
+import LinearProgress from '@mui/material/LinearProgress';
+import { Box } from "@mui/material";
+
+import emptybadge from './images/emptybadge.png'
+import badge from './images/medail.png'
 
 
 interface Todo {
@@ -28,11 +33,11 @@ interface Todo {
 export default function Home() {
 
   const [todos, setTodos] = useState([
-    { title: 'todo1', description: 'beschrijving van de eerste taak', id: 0, backgroundColor: '', borderColor: "" , textColor: '' },
-    { title: 'todo2', description: 'beschrijving van de tweede taak', id: 1, backgroundColor: '', borderColor: "" , textColor: '' },
-    { title: 'todo3', description: 'beschrijving van de derde taak', id: 2,  backgroundColor: '', borderColor: "" , textColor: '' },
-    { title: 'todo4', description: 'beschrijving van de vierde taak', id: 3, backgroundColor: '', borderColor: "" , textColor: '' },
-    { title: 'Kleine testcase met grote titel', description: 'beschrijving van de vijfde taak die eigelijk ook wel een zeer lange beschrijving heeft om de UI eens te testen want je weet nooit wat er kan gebeuren in het leven...', id: 5, backgroundColor: '', borderColor: "" , textColor: '' },
+    { title: 'todo1', description: 'beschrijving van de eerste taak', id: 0, backgroundColor: '', borderColor: "", textColor: '' },
+    { title: 'todo2', description: 'beschrijving van de tweede taak', id: 1, backgroundColor: '', borderColor: "", textColor: '' },
+    { title: 'todo3', description: 'beschrijving van de derde taak', id: 2, backgroundColor: '', borderColor: "", textColor: '' },
+    { title: 'todo4', description: 'beschrijving van de vierde taak', id: 3, backgroundColor: '', borderColor: "", textColor: '' },
+    { title: 'Kleine testcase met grote titel', description: 'beschrijving van de vijfde taak die eigelijk ook wel een zeer lange beschrijving heeft om de UI eens te testen want je weet nooit wat er kan gebeuren in het leven...', id: 5, backgroundColor: '', borderColor: "", textColor: '' },
   ])
 
   const emptyTodo = {
@@ -48,7 +53,7 @@ export default function Home() {
 
   let rerender = "ik ben echt gewoon een goofy variabele"
   const [allTodos, setAllTodos] = useState<Todo[]>([])
-  const [doneTodos, setDoneTodos] =useState<Todo[]>([])
+  const [doneTodos, setDoneTodos] = useState<Todo[]>([])
 
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [showDeleteModal, setShowDeleteModal] = useState(false)
@@ -82,9 +87,23 @@ export default function Home() {
     setShowCreateModal(true)
   }
 
+  const handleDateSelect = (data: any) => {
+    setNewTodo({ ...newTodo, ...data, id: new Date().getTime() })
+    setShowCreateModal(true)
+  }
+
+  // const handleEventChange = (data: any) => {
+  //   console.log(data.event._def)
+  //   setNewTodo({...newTodo, title: data.event._def.title , allDay: data.event._def.allDay , ...data.event._def.extendedProps})
+  //   console.log(newTodo)
+  //   setAllTodos([...allTodos, newTodo])
+  //   setNewTodo(emptyTodo)
+
+  // }
+
   const addTodo = (data: DropArg) => {       // id mss later nog op andere manier doen
-   // console.log("DATA", data)
-    const selectedTodo = todos.find(todo => todo.title === data.draggedEl.innerText) || { title: 'Er ging iets mis', description: 'Dit is geen todo', id: 999, backgroundColor: 'red', borderColor: "darkred" , textColor: 'darkred' }
+    // console.log("DATA", data)
+    const selectedTodo = todos.find(todo => todo.title === data.draggedEl.innerText) || { title: 'Er ging iets mis', description: 'Dit is geen todo', id: 999, backgroundColor: 'red', borderColor: "darkred", textColor: 'darkred' }
     const todo = {
       ...newTodo,
       id: new Date().getTime(),
@@ -101,14 +120,12 @@ export default function Home() {
   }
 
   const handleDeleteModal = (data: any) => {
-    console.log(data)
     setShowDeleteModal(true)
     setIdToDelete(Number(data.id))
   }
 
   const handleShowModal = (data: { event: { id: string } }) => {
     setShowDisplayModal(true)
-    console.log(data)
     setSelectedTodo(allTodos.filter(todo => Number(todo.id) === Number(data.event.id))[0])
   }
 
@@ -157,14 +174,16 @@ export default function Home() {
   }
 
   const setTodoAsDone = (todo: Todo) => {
+    if (!doneTodos.find(done => done.id === todo.id)) {
       setDoneTodos([...doneTodos, todo])
-      todo.backgroundColor = "lightgreen"
-      todo.borderColor = "green"
-      todo.textColor = "darkgreen"
-      setShowDisplayModal(false)
-      console.log("ik besta")
-      setAllTodos(allTodos.filter(events => Number(todo.id) !== Number(events.id)))
-      setAllTodos([...allTodos, todo])
+    }
+
+    todo.backgroundColor = "lightgreen"
+    todo.borderColor = "green"
+    todo.textColor = "darkgreen"
+    setShowDisplayModal(false)
+    setAllTodos(allTodos.filter(events => Number(todo.id) !== Number(events.id)))
+    setAllTodos([...allTodos, todo])
   }
 
   return (
@@ -173,11 +192,24 @@ export default function Home() {
       <nav className="flex justify-between border-b border-violet-100 p-4">
 
         <h1 className="font-bold text-2xl text-gray-700"> Calendar</h1>
+        <div className="flex flex-col justify-center" >
+          <p>Score: {doneTodos.length}</p>
+          <div className="flex flex-row gap-2 items-center">
+            <img alt="emptybadge" src='./images/emptybadge.png' className="h-8"></img>
+            <Box className="w-36">
+              <LinearProgress variant="determinate" value={doneTodos.length * 20} />
+            </Box>
+            <img alt="badge" src='./images/medail.png' className="h-8"></img>
+
+          </div>
+
+        </div>
 
         <button
           className="inline-flex justify-center rounded-md border border-transparent bg-violet-100 px-4 py-2 text-md font-medium text-violet-900 hover:bg-violet-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
           onClick={() => console.log(doneTodos)}
         > Progress</button>
+
       </nav>
 
       <main className="flex h-min-screen flex-col items-center justify-between">
@@ -204,6 +236,7 @@ export default function Home() {
               selectable={true}
               selectMirror={true}
               dateClick={handleDateClick}
+              select={(data) => handleDateSelect(data)}
               drop={(data) => addTodo(data)}
               eventClick={(data) => handleShowModal(data)}
               height={800}
@@ -216,7 +249,8 @@ export default function Home() {
               <button className="hover:text-slate-500"
                 onClick={() => {
                   setIsListTodo(true)
-                  setShowCreateModal(true)}
+                  setShowCreateModal(true)
+                }
                 }>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
