@@ -4,12 +4,27 @@ import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/16/solid";
 
 
-export default function CreateTodoDialog({ newTodo,
-    showCreateModal, setShowCreateModal,
-    handleSubmit, handleChange, handleChangeDescr, handleCloseModal }) {
+export default function CreateTodoDialog({
+    newTodo,
+    showCreateModal,
+    setShowCreateModal,
+    handleSubmit,
+    handleChange,
+    handleChangeDescr,
+    handleCloseModal,
+    handleAddToList,
+    isListTodo,
+    setIsListTodo
+}) {
+
+    const handleClose = () => {
+        setIsListTodo(false)
+        setShowCreateModal(false)
+    }
     return (
         <Transition.Root show={showCreateModal} as={Fragment}>
-            <Dialog as="div" className="relative z-10" onClose={setShowCreateModal}>
+            <Dialog as="div" className="relative z-10" 
+            onClose={handleClose}>
                 <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"
@@ -42,7 +57,7 @@ export default function CreateTodoDialog({ newTodo,
                                         <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">
                                             Nieuwe Todo
                                         </Dialog.Title>
-                                        <form action="submit" onSubmit={handleSubmit}>
+                                        <form action="submit" onSubmit={isListTodo ? handleAddToList : handleSubmit}>
                                             <div className="mt-2">
                                                 <input type="text" name="title" className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6"
                                                     value={newTodo.title} onChange={(e) => handleChange(e)} placeholder="Title" />

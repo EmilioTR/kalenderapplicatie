@@ -25,25 +25,29 @@ interface Todo {
 export default function Home() {
 
   const [todos, setTodos] = useState([
-    { title: 'todo1', description: 'beschrijving', id: '1' },
-    { title: 'todo2', description: 'beschrijving', id: '2' },
-    { title: 'todo3', description: 'beschrijving', id: '3' },
-    { title: 'todo4', description: 'beschrijving', id: '4' },
-    { title: 'todo5', description: 'beschrijving', id: '5' },
+    { title: 'todo1', description: 'beschrijving van de eerste taak', id: 0 },
+    { title: 'todo2', description: 'beschrijving van de tweede taak', id: 1 },
+    { title: 'todo3', description: 'beschrijving van de derde taak', id: 2 },
+    { title: 'todo4', description: 'beschrijving van de vierde taak', id: 3 },
+    { title: 'Kleine testcase met grote titel', description: 'beschrijving van de vijfde taak die eigelijk ook wel een zeer lange beschrijving heeft om de UI eens te testen want je weet nooit wat er kan gebeuren in het leven...', id: 5 },
   ])
+
+  const emptyTodo = {
+    id: 0,
+    title: '',
+    start: '',
+    description: '',
+    allDay: false,
+  }
+
   const [allTodos, setAllTodos] = useState<Todo[]>([])
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [showDisplayModal, setShowDisplayModal] = useState(false)
   const [idToDelete, setIdToDelete] = useState<number | null>(null)
   const [selectedTodo, setSelectedTodo] = useState<Todo | null>(null)
-  const [newTodo, setNewTodo] = useState<Todo>({
-    id: 0,
-    title: '',
-    start: '',
-    description: '',
-    allDay: false,
-  })
+  const [newTodo, setNewTodo] = useState<Todo>(emptyTodo)
+  const [isListTodo, setIsListTodo] = useState(false)
 
   useEffect(() => {
     let draggableEl = document.getElementById('draggable-el')
@@ -55,9 +59,10 @@ export default function Home() {
           let title = todoEl.getAttribute("title")
           let description = todoEl.getAttribute("description")
           let start = todoEl.getAttribute("start")
-          
+
           return { id, title, start, description }
         }
+
       })
     }
   }, [])
@@ -71,14 +76,17 @@ export default function Home() {
 
   const addTodo = (data: DropArg) => {       // id mss later nog op andere manier doen
     console.log("DATA", data)
+    const selectedTodo = todos.find(todo => todo.title === data.draggedEl.innerText) || { title: 'Er ging iets mis', description: 'Dit is geen todo', id: 999 }
     const todo = {
       ...newTodo,
       id: new Date().getTime(),
-      title: data.draggedEl.innerText,
-      description: data.draggedEl.innerText,
+      title: selectedTodo.title,
+      description: selectedTodo.description,
       allDay: data.allDay,
       start: data.date.toISOString(),
     }
+
+    setTodos(todos.filter(todo => todo.title !== data.draggedEl.innerText))
 
     setAllTodos([...allTodos, todo])
   }
@@ -103,6 +111,7 @@ export default function Home() {
 
   const handleCloseModal = () => {
     setShowCreateModal(false)
+    setIsListTodo(false)
     setNewTodo({
       id: 0,
       title: '',
@@ -133,25 +142,27 @@ export default function Home() {
     e.preventDefault()
     setAllTodos([...allTodos, newTodo])
     setShowCreateModal(false)
-    setNewTodo({
-      id: 0,
-      title: '',
-      description: '',
-      start: '',
-      allDay: false,
-    })
+    setNewTodo(emptyTodo)
+  }
+
+  const handleAddToList = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsListTodo(false)
+    setTodos([...todos, newTodo])
+    setShowCreateModal(false)
+    setNewTodo(emptyTodo)
   }
 
   return (
 
     <>
-      <nav className="flex justify-between mb-12 border-b border-violet-100 p-4">
+      <nav className="flex justify-between border-b border-violet-100 p-4">
 
         <h1 className="font-bold text-2xl text-gray-700"> Calendar</h1>
       </nav>
 
-      <main className="flex min-h-screen flex-col items-center justify-between p-5">
-        <div className="fc-view grid grid-cols-10">
+      <main className="flex h-min-screen flex-col items-center justify-between">
+        <div className="fc-view grid grid-cols-10 p-5">
           <div className="col-span-8">
 
             <FullCalendar
@@ -176,11 +187,24 @@ export default function Home() {
               dateClick={handleDateClick}
               drop={(data) => addTodo(data)}
               eventClick={(data) => handleShowModal(data)}
+              height={800}
             />
           </div>
 
-          <div id="draggable-el" className="ml-8 w-full border-2 p-2 rounded-md mt-16 lg:h-1/2 bg-violet-50">
-            <h1 className="font-bold text-lg text-center">Drag Todo's</h1>
+          <div id="draggable-el" className="ml-8 w-[250px] border-2 p-2 rounded-md mt-16 lg:h-1/2 bg-violet-50">
+            <div className="flex flex-row w-full justify-between">
+              <h1 className="font-bold text-lg text-center">Drag Todo's</h1>
+              <button className="hover:text-slate-500"
+                onClick={() => {
+                  setIsListTodo(true)
+                  setShowCreateModal(true)}
+                }>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+              </button>
+
+            </div>
             {
               todos.map(todo => (
                 <div
@@ -198,9 +222,9 @@ export default function Home() {
 
         <DeleteDialog {...{ showDeleteModal, setShowDeleteModal, handleDelete, handleCloseModal }} />
 
-        <CreateTodoDialog {...{ newTodo, showCreateModal, setShowCreateModal, handleSubmit, handleChange, handleChangeDescr, handleCloseModal }} />
+        <CreateTodoDialog {...{ newTodo, showCreateModal, setShowCreateModal, handleSubmit, handleChange, handleChangeDescr, handleCloseModal, handleAddToList, isListTodo, setIsListTodo }} />
 
-        <ShowTodoDialog {...{selectedTodo, showDisplayModal, setShowDisplayModal, handleDeleteModal } }></ShowTodoDialog>
+        <ShowTodoDialog {...{ selectedTodo, showDisplayModal, setShowDisplayModal, handleDeleteModal }}></ShowTodoDialog>
       </main>
 
     </>
