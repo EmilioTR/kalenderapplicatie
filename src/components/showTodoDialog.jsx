@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/16/solid";
 
-export default function ShowTodoDialog({ selectedTodo, showDisplayModal, setShowDisplayModal, handleDeleteModal }) {
+export default function ShowTodoDialog({ selectedTodo, showDisplayModal, setShowDisplayModal, handleDeleteModal, setTodoAsDone }) {
 
     /*
         HIER ALLES VAN DE TODO WEERGEVEN
@@ -73,7 +73,7 @@ export default function ShowTodoDialog({ selectedTodo, showDisplayModal, setShow
                                         <button
                                             type="button"
                                             className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-md font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                                        // onClick={}
+                                            onClick={() => setTodoAsDone(selectedTodo)}
                                         >
                                             Gedaan
                                         </button>

@@ -11,7 +11,7 @@ import { CheckIcon, ExclamationTriangleIcon } from "@heroicons/react/16/solid";
 import DeleteDialog from "@/components/deleteTodoDialog";
 import CreateTodoDialog from "@/components/createTodoDialog";
 import ShowTodoDialog from "@/components/showTodoDialog";
-import { EventSourceInput } from "@fullcalendar/core/index.js";
+import { Calendar, EventSourceInput } from "@fullcalendar/core/index.js";
 
 
 interface Todo {
@@ -20,16 +20,19 @@ interface Todo {
   description: string;
   start: Date | string;
   allDay: boolean;
+  backgroundColor: string;
+  textColor: string;
+  borderColor: string;
 }
 
 export default function Home() {
 
   const [todos, setTodos] = useState([
-    { title: 'todo1', description: 'beschrijving van de eerste taak', id: 0 },
-    { title: 'todo2', description: 'beschrijving van de tweede taak', id: 1 },
-    { title: 'todo3', description: 'beschrijving van de derde taak', id: 2 },
-    { title: 'todo4', description: 'beschrijving van de vierde taak', id: 3 },
-    { title: 'Kleine testcase met grote titel', description: 'beschrijving van de vijfde taak die eigelijk ook wel een zeer lange beschrijving heeft om de UI eens te testen want je weet nooit wat er kan gebeuren in het leven...', id: 5 },
+    { title: 'todo1', description: 'beschrijving van de eerste taak', id: 0, backgroundColor: '', borderColor: "" , textColor: '' },
+    { title: 'todo2', description: 'beschrijving van de tweede taak', id: 1, backgroundColor: '', borderColor: "" , textColor: '' },
+    { title: 'todo3', description: 'beschrijving van de derde taak', id: 2,  backgroundColor: '', borderColor: "" , textColor: '' },
+    { title: 'todo4', description: 'beschrijving van de vierde taak', id: 3, backgroundColor: '', borderColor: "" , textColor: '' },
+    { title: 'Kleine testcase met grote titel', description: 'beschrijving van de vijfde taak die eigelijk ook wel een zeer lange beschrijving heeft om de UI eens te testen want je weet nooit wat er kan gebeuren in het leven...', id: 5, backgroundColor: '', borderColor: "" , textColor: '' },
   ])
 
   const emptyTodo = {
@@ -37,10 +40,16 @@ export default function Home() {
     title: '',
     start: '',
     description: '',
+    backgroundColor: '',
+    borderColor: "",
+    textColor: "",
     allDay: false,
   }
 
+  let rerender = "ik ben echt gewoon een goofy variabele"
   const [allTodos, setAllTodos] = useState<Todo[]>([])
+  const [doneTodos, setDoneTodos] =useState<Todo[]>([])
+
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [showDisplayModal, setShowDisplayModal] = useState(false)
@@ -62,7 +71,6 @@ export default function Home() {
 
           return { id, title, start, description }
         }
-
       })
     }
   }, [])
@@ -75,8 +83,8 @@ export default function Home() {
   }
 
   const addTodo = (data: DropArg) => {       // id mss later nog op andere manier doen
-    console.log("DATA", data)
-    const selectedTodo = todos.find(todo => todo.title === data.draggedEl.innerText) || { title: 'Er ging iets mis', description: 'Dit is geen todo', id: 999 }
+   // console.log("DATA", data)
+    const selectedTodo = todos.find(todo => todo.title === data.draggedEl.innerText) || { title: 'Er ging iets mis', description: 'Dit is geen todo', id: 999, backgroundColor: 'red', borderColor: "darkred" , textColor: 'darkred' }
     const todo = {
       ...newTodo,
       id: new Date().getTime(),
@@ -84,6 +92,7 @@ export default function Home() {
       description: selectedTodo.description,
       allDay: data.allDay,
       start: data.date.toISOString(),
+      backgroundColor: selectedTodo.backgroundColor
     }
 
     setTodos(todos.filter(todo => todo.title !== data.draggedEl.innerText))
@@ -112,13 +121,7 @@ export default function Home() {
   const handleCloseModal = () => {
     setShowCreateModal(false)
     setIsListTodo(false)
-    setNewTodo({
-      id: 0,
-      title: '',
-      start: '',
-      description: '',
-      allDay: false,
-    })
+    setNewTodo(emptyTodo)
     setShowDeleteModal(false)
     setIdToDelete(null)
 
@@ -153,12 +156,28 @@ export default function Home() {
     setNewTodo(emptyTodo)
   }
 
+  const setTodoAsDone = (todo: Todo) => {
+      setDoneTodos([...doneTodos, todo])
+      todo.backgroundColor = "lightgreen"
+      todo.borderColor = "green"
+      todo.textColor = "darkgreen"
+      setShowDisplayModal(false)
+      console.log("ik besta")
+      setAllTodos(allTodos.filter(events => Number(todo.id) !== Number(events.id)))
+      setAllTodos([...allTodos, todo])
+  }
+
   return (
 
     <>
       <nav className="flex justify-between border-b border-violet-100 p-4">
 
         <h1 className="font-bold text-2xl text-gray-700"> Calendar</h1>
+
+        <button
+          className="inline-flex justify-center rounded-md border border-transparent bg-violet-100 px-4 py-2 text-md font-medium text-violet-900 hover:bg-violet-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+          onClick={() => console.log(doneTodos)}
+        > Progress</button>
       </nav>
 
       <main className="flex h-min-screen flex-col items-center justify-between">
@@ -224,7 +243,7 @@ export default function Home() {
 
         <CreateTodoDialog {...{ newTodo, showCreateModal, setShowCreateModal, handleSubmit, handleChange, handleChangeDescr, handleCloseModal, handleAddToList, isListTodo, setIsListTodo }} />
 
-        <ShowTodoDialog {...{ selectedTodo, showDisplayModal, setShowDisplayModal, handleDeleteModal }}></ShowTodoDialog>
+        <ShowTodoDialog {...{ selectedTodo, showDisplayModal, setShowDisplayModal, handleDeleteModal, setTodoAsDone }}></ShowTodoDialog>
       </main>
 
     </>
