@@ -11,9 +11,11 @@ import { CheckIcon, ExclamationTriangleIcon } from "@heroicons/react/16/solid";
 import DeleteDialog from "@/components/deleteTodoDialog";
 import CreateTodoDialog from "@/components/createTodoDialog";
 import ShowTodoDialog from "@/components/showTodoDialog";
+import BrainDumpDrawer from "@/components/brainDumpDrawer";
 import { Calendar, EventSourceInput } from "@fullcalendar/core/index.js";
 import LinearProgress from '@mui/material/LinearProgress';
 import { Box } from "@mui/material";
+import Button from '@mui/joy/Button';
 
 import emptybadge from './images/emptybadge.png'
 import badge from './images/medail.png'
@@ -62,6 +64,7 @@ export default function Home() {
   const [selectedTodo, setSelectedTodo] = useState<Todo | null>(null)
   const [newTodo, setNewTodo] = useState<Todo>(emptyTodo)
   const [isListTodo, setIsListTodo] = useState(false)
+  const [openDrawer, setOpenDrawer] = useState(false)
 
   useEffect(() => {
     let draggableEl = document.getElementById('draggable-el')
@@ -210,6 +213,11 @@ export default function Home() {
           onClick={() => console.log(doneTodos)}
         > Progress</button>
 
+        <button
+          className="inline-flex justify-center rounded-md border border-transparent bg-violet-100 px-4 py-2 text-md font-medium text-violet-900 hover:bg-violet-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+          onClick={() => setOpenDrawer(!openDrawer)}
+        > {`${openDrawer}`} </button>
+
       </nav>
 
       <main className="flex h-min-screen flex-col items-center justify-between">
@@ -278,6 +286,8 @@ export default function Home() {
         <CreateTodoDialog {...{ newTodo, showCreateModal, setShowCreateModal, handleSubmit, handleChange, handleChangeDescr, handleCloseModal, handleAddToList, isListTodo, setIsListTodo }} />
 
         <ShowTodoDialog {...{ selectedTodo, showDisplayModal, setShowDisplayModal, handleDeleteModal, setTodoAsDone }}></ShowTodoDialog>
+            
+        <BrainDumpDrawer {...{openDrawer, setOpenDrawer }} />
       </main>
 
     </>
