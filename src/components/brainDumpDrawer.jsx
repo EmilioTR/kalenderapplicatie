@@ -4,6 +4,8 @@ import DialogTitle from '@mui/joy/DialogTitle';
 import DialogContent from '@mui/joy/DialogContent';
 import Sheet from '@mui/joy/Sheet';
 import Divider from '@mui/joy/Divider';
+import BrainDumpEditor from '@/components/brainDumpEditor'
+
 
 
 export default function BrainDumpDrawer({ openDrawer, setOpenDrawer }) {
@@ -40,10 +42,10 @@ export default function BrainDumpDrawer({ openDrawer, setOpenDrawer }) {
                 <ModalClose />
                 <DialogTitle className="text-violet-800" >Brain Dump</DialogTitle>
                 <Divider sx={{ mt: 'auto', background: 'darkviolet' }} />
-                <DialogContent sx={{ gap: 2, p: 1 }}>
-                    what a crawy night
-                    
+                <DialogContent>
+                    <BrainDumpEditor/>
                 </DialogContent>
+                
             </Sheet>
         </Drawer>
     )

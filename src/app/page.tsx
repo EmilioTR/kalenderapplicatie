@@ -150,7 +150,8 @@ export default function Home() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setNewTodo({
       ...newTodo,
-      title: e.target.value
+      title: e.target.value,
+      id: new Date().getTime()
     })
   }
 
@@ -196,7 +197,14 @@ export default function Home() {
 
         <h1 className="font-bold text-2xl text-gray-700"> Calendar</h1>
         <div className="flex flex-col justify-center" >
-          <p>Score: {doneTodos.length}</p>
+          <div className="flex flex-row justify-between" >
+            <p>Score: {doneTodos.length}</p>
+            <button
+          className="inline-flex justify-center rounded-md border p-1 border-transparent items-center bg-violet-100 text-sm font-medium text-violet-900 hover:bg-violet-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+          onClick={() => console.log(doneTodos)}
+        > Progress</button>
+          </div>
+          
           <div className="flex flex-row gap-2 items-center">
             <img alt="emptybadge" src='./images/emptybadge.png' className="h-8"></img>
             <Box className="w-36">
@@ -208,13 +216,10 @@ export default function Home() {
 
         </div>
 
-        <button
-          className="inline-flex justify-center rounded-md border border-transparent bg-violet-100 px-4 py-2 text-md font-medium text-violet-900 hover:bg-violet-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-          onClick={() => console.log(doneTodos)}
-        > Progress</button>
+        
 
         <button
-          className="inline-flex justify-center rounded-md border border-transparent bg-violet-100 px-4 py-2 text-md font-medium text-violet-900 hover:bg-violet-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+          className="inline-flex justify-center rounded-md border border-transparent items-center bg-violet-100 px-4 py-2 text-md font-medium text-violet-900 hover:bg-violet-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
           onClick={() => setOpenDrawer(!openDrawer)}
         > Brain Dump </button>
 
@@ -251,9 +256,11 @@ export default function Home() {
             />
           </div>
 
-          <div id="draggable-el" className="ml-8 w-[250px] border-2 p-2 rounded-md mt-16 lg:h-1/2 bg-violet-50">
+          <div id="draggable-el" className="ml-8 w-[260px] border-2 p-2 rounded-md mt-16 h-[495px] bg-violet-50">
             <div className="flex flex-row w-full justify-between">
-              <h1 className="font-bold text-lg text-center">Drag Todo's</h1>
+              <h1 className="font-bold text-lg text-center m-auto">
+                In te plannen Todo's
+              </h1>
               <button className="hover:text-slate-500"
                 onClick={() => {
                   setIsListTodo(true)
@@ -266,6 +273,7 @@ export default function Home() {
               </button>
 
             </div>
+            <div className="h-[95%] overflow-x-clip overflow-y-scroll">
             {
               todos.map(todo => (
                 <div
@@ -278,6 +286,7 @@ export default function Home() {
                 </div>
               ))
             }
+            </div>
           </div>
         </div>
 
@@ -288,6 +297,8 @@ export default function Home() {
         <ShowTodoDialog {...{ selectedTodo, showDisplayModal, setShowDisplayModal, handleDeleteModal, setTodoAsDone }}></ShowTodoDialog>
             
         <BrainDumpDrawer {...{openDrawer, setOpenDrawer }} />
+
+        
       </main>
 
     </>
