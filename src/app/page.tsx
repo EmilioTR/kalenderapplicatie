@@ -259,7 +259,7 @@ export default function Home() {
           <div id="draggable-el" className="ml-8 w-[260px] border-2 p-2 rounded-md mt-16 h-[495px] bg-violet-50">
             <div className="flex flex-row w-full justify-between">
               <h1 className="font-bold text-lg text-center m-auto">
-                In te plannen Todo's
+                In te plannen Todos&apos;
               </h1>
               <button className="hover:text-slate-500"
                 onClick={() => {
