@@ -216,7 +216,7 @@ export default function Home() {
         <button
           className="inline-flex justify-center rounded-md border border-transparent bg-violet-100 px-4 py-2 text-md font-medium text-violet-900 hover:bg-violet-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
           onClick={() => setOpenDrawer(!openDrawer)}
-        > {`${openDrawer}`} </button>
+        > Brain Dump </button>
 
       </nav>
 
