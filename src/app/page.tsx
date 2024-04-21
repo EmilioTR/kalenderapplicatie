@@ -14,6 +14,7 @@ import ShowTodoDialog from "@/components/showTodoDialog";
 import BrainDumpDrawer from "@/components/brainDumpDrawer";
 import { Calendar, EventSourceInput } from "@fullcalendar/core/index.js";
 import LinearProgress from '@mui/material/LinearProgress';
+import ShowListTodo from '@/components/showListTodo';
 import { Box } from "@mui/material";
 import Button from '@mui/joy/Button';
 
@@ -35,11 +36,11 @@ interface Todo {
 export default function Home() {
 
   const [todos, setTodos] = useState([
-    { title: 'todo1', description: 'beschrijving van de eerste taak', id: 0, backgroundColor: '', borderColor: "", textColor: '' },
-    { title: 'todo2', description: 'beschrijving van de tweede taak', id: 1, backgroundColor: '', borderColor: "", textColor: '' },
-    { title: 'todo3', description: 'beschrijving van de derde taak', id: 2, backgroundColor: '', borderColor: "", textColor: '' },
-    { title: 'todo4', description: 'beschrijving van de vierde taak', id: 3, backgroundColor: '', borderColor: "", textColor: '' },
-    { title: 'Kleine testcase met grote titel', description: 'beschrijving van de vijfde taak die eigelijk ook wel een zeer lange beschrijving heeft om de UI eens te testen want je weet nooit wat er kan gebeuren in het leven...', id: 5, backgroundColor: '', borderColor: "", textColor: '' },
+    { title: 'Voetballen', description: 'Ik moet gaan voetballen, het is training', id: 0, backgroundColor: '#3ac0cf', borderColor: "#3ac0cf", textColor: 'white' },
+    { title: 'Fietsen', description: 'Voorbereiden op fietstoernooi, moet een fietstour van 20km fietsen onder de 40 minuten', id: 1, backgroundColor: '#3ac0cf', borderColor: "#3ac0cf", textColor: 'white' },
+    { title: 'Cinema met Carlos', description: 'We gaan eindelijk Dune 2 gaan kijken!!! Lisan Al Gaiiiib!', id: 2, backgroundColor: '#8cb849', borderColor: "#8cb849", textColor: 'white' },
+    { title: 'Taak Wiskunde II afwerken', description: 'Oefening 1.3 t.e.m. oef 3.3 afwerken. DEADLINE: 17/06', id: 3, backgroundColor: '#c9c426', borderColor: "#c9c426", textColor: 'white' },
+    { title: 'Maandelijkse checkup van oma bij het ziekenhuis', description: 'Moet oma voeren naar het ziekenhuis om haar bloed te laten checken --- verder is dit een beschrijving van de vijfde taak die eigelijk ook wel een zeer lange beschrijving heeft om de UI eens te testen want je weet nooit wat er kan gebeuren in het leven...', id: 5, backgroundColor: '#d63341', borderColor: "#d63341", textColor: 'white' },
   ])
 
   const emptyTodo = {
@@ -53,13 +54,13 @@ export default function Home() {
     allDay: false,
   }
 
-  let rerender = "ik ben echt gewoon een goofy variabele"
   const [allTodos, setAllTodos] = useState<Todo[]>([])
   const [doneTodos, setDoneTodos] = useState<Todo[]>([])
 
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [showDisplayModal, setShowDisplayModal] = useState(false)
+  const [showListTodoModal, setShowListTodoModal] = useState(false)
   const [idToDelete, setIdToDelete] = useState<number | null>(null)
   const [selectedTodo, setSelectedTodo] = useState<Todo | null>(null)
   const [newTodo, setNewTodo] = useState<Todo>(emptyTodo)
@@ -114,7 +115,8 @@ export default function Home() {
       description: selectedTodo.description,
       allDay: data.allDay,
       start: data.date.toISOString(),
-      backgroundColor: selectedTodo.backgroundColor
+      backgroundColor: selectedTodo.backgroundColor,
+      borderColor: selectedTodo.borderColor,
     }
 
     setTodos(todos.filter(todo => todo.title !== data.draggedEl.innerText))
@@ -130,6 +132,19 @@ export default function Home() {
   const handleShowModal = (data: { event: { id: string } }) => {
     setShowDisplayModal(true)
     setSelectedTodo(allTodos.filter(todo => Number(todo.id) === Number(data.event.id))[0])
+  }
+
+  const handleShowListTodo = ( id: Number  ) => {
+    setShowListTodoModal(true)
+    //console.log(yap);
+    //const peter = todos.filter(todo => {console.log(todo.id , yap), Number(todo.id) === Number(yap)})
+    todos.forEach(todo => { 
+     if(todo.id === id) {
+      setSelectedTodo({...todo, start: '', allDay: false})
+     }
+    })
+    //console.log(peter);
+   // setSelectedTodo()
   }
 
   const handleDelete = () => {
@@ -159,6 +174,15 @@ export default function Home() {
     setNewTodo({
       ...newTodo,
       description: e.target.value
+    })
+  }
+
+  const handleChangeColor = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setNewTodo({
+      ...newTodo,
+      backgroundColor: `${e.target.value}`,
+      borderColor: `${e.target.value}`,
+      textColor: "white",
     })
   }
 
@@ -200,11 +224,11 @@ export default function Home() {
           <div className="flex flex-row justify-between" >
             <p>Score: {doneTodos.length}</p>
             <button
-          className="inline-flex justify-center rounded-md border p-1 border-transparent items-center bg-violet-100 text-sm font-medium text-violet-900 hover:bg-violet-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-          onClick={() => console.log(doneTodos)}
-        > Progress</button>
+              className="inline-flex justify-center rounded-md border p-1 border-transparent items-center bg-violet-100 text-sm font-medium text-violet-900 hover:bg-violet-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+              onClick={() => console.log(allTodos)}
+            > Progress</button>
           </div>
-          
+
           <div className="flex flex-row gap-2 items-center">
             <img alt="emptybadge" src='./images/emptybadge.png' className="h-8"></img>
             <Box className="w-36">
@@ -216,7 +240,7 @@ export default function Home() {
 
         </div>
 
-        
+
 
         <button
           className="inline-flex justify-center rounded-md border border-transparent items-center bg-violet-100 px-4 py-2 text-md font-medium text-violet-900 hover:bg-violet-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
@@ -274,31 +298,34 @@ export default function Home() {
 
             </div>
             <div className="h-[95%] overflow-x-clip overflow-y-scroll">
-            {
-              todos.map(todo => (
-                <div
-                  className="fc-event border-2 p-1 m-2 w-full rounded-md ml-auto text-center bg-white"
-                  title={todo.title}
-                  key={todo.id}
-                >
-                  {todo.title}
+              {
+                todos.map(todo => (
+                  <div
+                    className={`fc-event border-2 p-1 m-2 w-full rounded-md ml-auto text-center bg-white bg-[${todo.backgroundColor}] `}
+                    title={todo.title}
+                    key={todo.id}
+                    onClick={() => handleShowListTodo(todo.id)}
+                  >
+                    {todo.title}
 
-                </div>
-              ))
-            }
+                  </div>
+                ))
+              }
             </div>
           </div>
         </div>
 
         <DeleteDialog {...{ showDeleteModal, setShowDeleteModal, handleDelete, handleCloseModal }} />
 
-        <CreateTodoDialog {...{ newTodo, showCreateModal, setShowCreateModal, handleSubmit, handleChange, handleChangeDescr, handleCloseModal, handleAddToList, isListTodo, setIsListTodo }} />
+        <CreateTodoDialog {...{ newTodo, showCreateModal, setShowCreateModal, handleSubmit, handleChange, handleChangeDescr, handleCloseModal, handleAddToList, isListTodo, setIsListTodo, handleChangeColor }} />
 
         <ShowTodoDialog {...{ selectedTodo, showDisplayModal, setShowDisplayModal, handleDeleteModal, setTodoAsDone }}></ShowTodoDialog>
-            
-        <BrainDumpDrawer {...{openDrawer, setOpenDrawer }} />
 
-        
+        <ShowListTodo {...{selectedTodo, showListTodoModal, setShowListTodoModal}} />
+
+        <BrainDumpDrawer {...{ openDrawer, setOpenDrawer }} />
+
+
       </main>
 
     </>

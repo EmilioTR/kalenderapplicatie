@@ -2,20 +2,11 @@ import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/16/solid";
 
-export default function ShowTodoDialog({ selectedTodo, showDisplayModal, setShowDisplayModal, handleDeleteModal, setTodoAsDone }) {
-
-    /*
-        HIER ALLES VAN DE TODO WEERGEVEN
-        De delete handelen
-        een description toevoegen aan de todo model
-
-        mss later ook een checked uitbreiden
-    */
-
+export default function ShowListTodo({ selectedTodo, showListTodoModal, setShowListTodoModal }) {
 
     return (
-        <Transition.Root show={showDisplayModal} as={Fragment}>
-            <Dialog as="div" className="relative z-10" onClose={setShowDisplayModal}>
+        <Transition.Root show={showListTodoModal} as={Fragment}>
+            <Dialog as="div" className="relative z-10" onClose={setShowListTodoModal}>
                 <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"
@@ -42,7 +33,7 @@ export default function ShowTodoDialog({ selectedTodo, showDisplayModal, setShow
                             <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                                 <div className="flex flex-row w-full justify-between">
                                 <Dialog.Title as="h3" className="text-2xl font-semibold leading-6 text-gray-900">
-                                        {showDisplayModal ? selectedTodo.title : ""}
+                                        {showListTodoModal ? selectedTodo.title : ""}
                                     </Dialog.Title>
 
                                     <button
@@ -58,10 +49,10 @@ export default function ShowTodoDialog({ selectedTodo, showDisplayModal, setShow
                                     
 
                                     <Dialog.Description className="h-fit mt-1">
-                                        {showDisplayModal ? selectedTodo.description : ""}
+                                        {showListTodoModal ? selectedTodo.description : ""}
                                     </Dialog.Description>
 
-                                    <div className="flex justify-between items-center mt-5">
+                                    <div className="flex justify-center items-center mt-5">
                                         <button
                                             type="button"
                                             className="inline-flex justify-center rounded-md border border-transparent !bg-red-100 px-4 py-2 text-md font-medium text-red-900 hover:!bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
@@ -70,13 +61,6 @@ export default function ShowTodoDialog({ selectedTodo, showDisplayModal, setShow
                                             Verwijder
                                         </button>
 
-                                        <button
-                                            type="button"
-                                            className="inline-flex justify-center rounded-md border border-transparent !bg-green-100 px-4 py-2 text-md font-medium text-green-900 hover:!bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                                            onClick={() => setTodoAsDone(selectedTodo)}
-                                        >
-                                            Gedaan
-                                        </button>
                                     </div>
                                 </div>
                             </Dialog.Panel>

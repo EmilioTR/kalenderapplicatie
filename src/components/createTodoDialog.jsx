@@ -15,7 +15,8 @@ export default function CreateTodoDialog({
     handleCloseModal,
     handleAddToList,
     isListTodo,
-    setIsListTodo
+    setIsListTodo,
+    handleChangeColor
 }) {
 
     const handleClose = () => {
@@ -60,10 +61,28 @@ export default function CreateTodoDialog({
                                         </Dialog.Title>
                                         <form action="submit" onSubmit={isListTodo ? handleAddToList : handleSubmit}>
                                             <div className="flex flex-col mt-2 gap-2">
-                                                <input type="text" name="title" className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6"
+                                            <label htmlFor="title" className="text-left" >Inhoud:</label>
+                                                <input type="text" name="title" id="title" className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6"
                                                     value={newTodo.title} onChange={(e) => handleChange(e)} placeholder="Title" />
                                                 <textarea type="text" name="beschrijving" className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6"
                                                     value={newTodo.description} onChange={(e) => handleChangeDescr(e)} placeholder="Beschrijving" />
+                                            
+                                            <label htmlFor="color" className="text-left" >Categorie:</label>
+                                            <select id="color" onChange={(e) => handleChangeColor(e)} className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6" >
+                                                <option value="">
+                                                Kies een kleur (default - violet)
+                                                </option>
+                                                <option value="#1c5bba">Blauw</option>
+                                                <option value="#c9c426">Geel</option>
+                                                <option value="#d63341">Rood</option>
+                                                <option value="#931c9e">Paars</option>
+
+                                                <option value="#3ac0cf">Cyaan</option>
+                                                <option value="#c210bf">Roze</option>
+                                                <option value="#cf841b">Oranje</option>
+                                                <option value="#8cb849">Lime</option>
+                                            </select>
+
                                             </div>
                                             <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
                                                 <button
