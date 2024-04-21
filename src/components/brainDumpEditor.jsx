@@ -3,9 +3,14 @@ import { useState } from "react";
 
 export default function BrainDumpEditor() {
   const [data, setData] = useState(`
+
   ## Dit is een plaats waar je kan schrijven wat je wil
 
-  ### **Het werkt zoals notion**
+  ### **Het werkt zoals notion** 
+
+  druk op de lijn hieronder en gebruik '/' voor commandos
+
+
 
   Je kan ook gewoon in markdown typen als je dat kent, maar is niet verplicht
 
@@ -43,6 +48,7 @@ export default function BrainDumpEditor() {
   </Drawer>
   \`\`\`
 `);
+console.log(data)
   return (
     <Editor
       className="rounded-md bg-slate-50 border border-slate-200"
