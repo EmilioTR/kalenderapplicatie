@@ -6,21 +6,15 @@ import interactionPlugin, { Draggable, DropArg } from '@fullcalendar/interaction
 import timeGridPlugin from '@fullcalendar/timegrid'
 import listPlugin from '@fullcalendar/list'
 import nlLocale from "@fullcalendar/core/locales/nl";
-import { Fragment, useEffect, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { CheckIcon, ExclamationTriangleIcon } from "@heroicons/react/16/solid";
+import { useEffect, useState } from "react";
 import DeleteDialog from "@/components/deleteTodoDialog";
 import CreateTodoDialog from "@/components/createTodoDialog";
 import ShowTodoDialog from "@/components/showTodoDialog";
 import BrainDumpDrawer from "@/components/brainDumpDrawer";
-import { Calendar, EventSourceInput } from "@fullcalendar/core/index.js";
-import LinearProgress from '@mui/material/LinearProgress';
+import { EventSourceInput } from "@fullcalendar/core/index.js";
 import ShowListTodo from '@/components/showListTodo';
-import { Box, hexToRgb } from "@mui/material";
-import Button from '@mui/joy/Button';
+import ProgressBar from '@/components/progressBar';
 
-import emptybadge from './images/emptybadge.png'
-import badge from './images/medail.png'
 
 
 interface Todo {
@@ -222,26 +216,9 @@ export default function Home() {
       <nav className="flex justify-between border-b border-violet-100 p-4">
 
         <h1 className="font-bold text-2xl text-gray-700"> Calendar</h1>
-        <div className="flex flex-col justify-center" >
-          <div className="flex flex-row justify-between" >
-            <p>Score: {doneTodos.length}</p>
-            <button
-              className="inline-flex justify-center rounded-md border p-1 border-transparent items-center bg-violet-100 text-sm font-medium text-violet-900 hover:bg-violet-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-              onClick={() => console.log(allTodos)}
-            > Progress</button>
-          </div>
+       
 
-          <div className="flex flex-row gap-2 items-center">
-            <img alt="emptybadge" src='./images/emptybadge.png' className="h-8"></img>
-            <Box className="w-36">
-              <LinearProgress variant="determinate" value={doneTodos.length * 20} />
-            </Box>
-            <img alt="badge" src='./images/medail.png' className="h-8"></img>
-
-          </div>
-
-        </div>
-
+        <ProgressBar { ...{doneTodos, } }></ProgressBar>
 
 
         <button
