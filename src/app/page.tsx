@@ -5,6 +5,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin, { Draggable, DropArg } from '@fullcalendar/interaction'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import listPlugin from '@fullcalendar/list'
+import nlLocale from "@fullcalendar/core/locales/nl";
 import { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon, ExclamationTriangleIcon } from "@heroicons/react/16/solid";
@@ -15,7 +16,7 @@ import BrainDumpDrawer from "@/components/brainDumpDrawer";
 import { Calendar, EventSourceInput } from "@fullcalendar/core/index.js";
 import LinearProgress from '@mui/material/LinearProgress';
 import ShowListTodo from '@/components/showListTodo';
-import { Box } from "@mui/material";
+import { Box, hexToRgb } from "@mui/material";
 import Button from '@mui/joy/Button';
 
 import emptybadge from './images/emptybadge.png'
@@ -35,23 +36,24 @@ interface Todo {
 
 export default function Home() {
 
-  const [todos, setTodos] = useState([
-    { title: 'Voetballen', description: 'Ik moet gaan voetballen, het is training', id: 0, backgroundColor: '#3ac0cf', borderColor: "#3ac0cf", textColor: 'white' },
-    { title: 'Fietsen', description: 'Voorbereiden op fietstoernooi, moet een fietstour van 20km fietsen onder de 40 minuten', id: 1, backgroundColor: '#3ac0cf', borderColor: "#3ac0cf", textColor: 'white' },
-    { title: 'Cinema met Carlos', description: 'We gaan eindelijk Dune 2 gaan kijken!!! Lisan Al Gaiiiib!', id: 2, backgroundColor: '#8cb849', borderColor: "#8cb849", textColor: 'white' },
-    { title: 'Taak Wiskunde II afwerken', description: 'Oefening 1.3 t.e.m. oef 3.3 afwerken. DEADLINE: 17/06', id: 3, backgroundColor: '#c9c426', borderColor: "#c9c426", textColor: 'white' },
-    { title: 'Maandelijkse checkup van oma bij het ziekenhuis', description: 'Moet oma voeren naar het ziekenhuis om haar bloed te laten checken --- verder is dit een beschrijving van de vijfde taak die eigelijk ook wel een zeer lange beschrijving heeft om de UI eens te testen want je weet nooit wat er kan gebeuren in het leven...', id: 5, backgroundColor: '#d63341', borderColor: "#d63341", textColor: 'white' },
+  const [todos, setTodos] = useState<Todo[]>([
+    { title: 'Voetballen', description: 'Ik moet gaan voetballen, het is training', id: 0, backgroundColor: '#3ac0cf', borderColor: "#3ac0cf", textColor: 'white' ,allDay: false, start: ''},
+    { title: 'Fietsen', description: 'Voorbereiden op fietstoernooi, moet een fietstour van 20km fietsen onder de 40 minuten', id: 1, backgroundColor: '#3ac0cf', borderColor: "#3ac0cf", textColor: 'white' ,allDay: false, start: ''},
+    { title: 'Cinema met Carlos', description: 'We gaan eindelijk Dune 2 gaan kijken!!! Lisan Al Gaiiiib!', id: 2, backgroundColor: '#8cb849', borderColor: "#8cb849", textColor: 'white', allDay: false, start: '' },
+    { title: 'Taak Wiskunde II afwerken', description: 'Oefening 1.3 t.e.m. oef 3.3 afwerken. DEADLINE: 17/06', id: 3, backgroundColor: '#c9c426', borderColor: "#c9c426", textColor: 'white', allDay: false, start: '' },
+    { title: 'Maandelijkse checkup van oma bij het ziekenhuis', description: 'Moet oma voeren naar het ziekenhuis om haar bloed te laten checken --- verder is dit een beschrijving van de vijfde taak die eigelijk ook wel een zeer lange beschrijving heeft om de UI eens te testen want je weet nooit wat er kan gebeuren in het leven...', id: 5, backgroundColor: '#d63341', borderColor: "#d63341", textColor: 'white', allDay: false, start: '' },
   ])
 
-  const emptyTodo = {
+
+  const emptyTodo : Todo = {
     id: 0,
     title: '',
-    start: '',
     description: '',
     backgroundColor: '',
     borderColor: "",
     textColor: "",
     allDay: false,
+    start: '',
   }
 
   const [allTodos, setAllTodos] = useState<Todo[]>([])
@@ -265,6 +267,7 @@ export default function Home() {
                 center: 'title',
                 right: 'timeGridWeek,dayGridMonth,listWeek'
               }}
+              locale={nlLocale}
               events={allTodos as EventSourceInput}
               initialView='timeGridWeek'
               nowIndicator={true}
@@ -301,7 +304,8 @@ export default function Home() {
               {
                 todos.map(todo => (
                   <div
-                    className={`fc-event border-2 p-1 m-2 w-full rounded-md ml-auto text-center bg-white bg-[${todo.backgroundColor}] `}
+                    className={"fc-event text-slate-50 border border-slate-100 p-1 m-2 w-full rounded-md ml-auto text-center hover:opacity-85 "}
+                    style={{ backgroundColor: todo.backgroundColor }} 
                     title={todo.title}
                     key={todo.id}
                     onClick={() => handleShowListTodo(todo.id)}
