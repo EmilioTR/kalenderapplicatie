@@ -48,7 +48,7 @@ export default function BrainDumpEditor() {
   </Drawer>
   \`\`\`
 `);
-console.log(data)
+
   return (
     <Editor
       className="rounded-md bg-slate-50 border border-slate-200"
