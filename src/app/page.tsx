@@ -14,6 +14,7 @@ import BrainDumpDrawer from "@/components/brainDumpDrawer";
 import { EventSourceInput } from "@fullcalendar/core/index.js";
 import ShowListTodo from '@/components/showListTodo';
 import ProgressBar from '@/components/progressBar';
+import data from '@/app/data/defaultEvents.json'
 
 
 
@@ -22,21 +23,23 @@ interface Todo {
   title: string;
   description: string;
   start: Date | string;
+  end: Date | string;
   allDay: boolean;
   backgroundColor: string;
   textColor: string;
   borderColor: string;
   done : boolean;
+  duration : number;
 }
 
 export default function Home() {
 
   const [todos, setTodos] = useState<Todo[]>([
-    { title: 'Voetballen', description: 'Ik moet gaan voetballen, het is training', id: 0, backgroundColor: '#3ac0cf', borderColor: "#3ac0cf", textColor: 'white' ,allDay: false, start: '', done : false},
-    { title: 'Fietsen', description: 'Voorbereiden op fietstoernooi, moet een fietstour van 20km fietsen onder de 40 minuten', id: 1, backgroundColor: '#3ac0cf', borderColor: "#3ac0cf", textColor: 'white' ,allDay: false, start: '',  done : false},
-    { title: 'Cinema met Carlos', description: 'We gaan eindelijk Dune 2 gaan kijken!!! Lisan Al Gaiiiib!', id: 2, backgroundColor: '#8cb849', borderColor: "#8cb849", textColor: 'white', allDay: false, start: '',  done : false },
-    { title: 'Taak Wiskunde II afwerken', description: 'Oefening 1.3 t.e.m. oef 3.3 afwerken. DEADLINE: 17/06', id: 3, backgroundColor: '#c9c426', borderColor: "#c9c426", textColor: 'white', allDay: false, start: '',  done : false },
-    { title: 'Maandelijkse checkup van oma bij het ziekenhuis', description: 'Moet oma voeren naar het ziekenhuis om haar bloed te laten checken --- verder is dit een beschrijving van de vijfde taak die eigelijk ook wel een zeer lange beschrijving heeft om de UI eens te testen want je weet nooit wat er kan gebeuren in het leven...', id: 5, backgroundColor: '#d63341', borderColor: "#d63341", textColor: 'white', allDay: false, start: '',  done : false },
+    { title: 'Voetballen', description: 'Ik moet gaan voetballen, het is training', id: 0, backgroundColor: '#3ac0cf', borderColor: "#3ac0cf", textColor: 'white' ,allDay: false, start: '', end: '' ,done : false, duration : 2.5},
+    { title: 'Fietsen', description: 'Voorbereiden op fietstoernooi, moet een fietstour van 20km fietsen onder de 40 minuten', id: 1, backgroundColor: '#3ac0cf', borderColor: "#3ac0cf", textColor: 'white' ,allDay: false, start: '', end: ''  , done : false, duration : 2},
+    { title: 'Cinema met Carlos', description: 'We gaan eindelijk Dune 2 gaan kijken!!! Lisan Al Gaiiiib!', id: 2, backgroundColor: '#8cb849', borderColor: "#8cb849", textColor: 'white', allDay: false, start: '', end: '' , done : false, duration : 3 },
+    { title: 'Taak Wiskunde II afwerken', description: 'Oefening 1.3 t.e.m. oef 3.3 afwerken. DEADLINE: 17/06', id: 3, backgroundColor: '#c9c426', borderColor: "#c9c426", textColor: 'white', allDay: false, start: '', end: '' , done : false , duration : 4.5},
+    { title: 'Maandelijkse checkup van oma bij het ziekenhuis', description: 'Moet oma voeren naar het ziekenhuis om haar bloed te laten checken --- verder is dit een beschrijving van de vijfde taak die eigelijk ook wel een zeer lange beschrijving heeft om de UI eens te testen want je weet nooit wat er kan gebeuren in het leven...', id: 5, backgroundColor: '#d63341', borderColor: "#d63341", textColor: 'white', allDay: false, start: '', end: '' , done : false , duration : 2 },
   ])
 
 
@@ -49,10 +52,12 @@ export default function Home() {
     textColor: "",
     allDay: false,
     start: '',
-    done : false
+    end: '' ,
+    done : false,
+    duration : 0
   }
 
-  const [allTodos, setAllTodos] = useState<Todo[]>([])
+  const [allTodos, setAllTodos] = useState<Todo[]>(data.events)
   const [doneTodos, setDoneTodos] = useState<Todo[]>([])
 
   const [showCreateModal, setShowCreateModal] = useState(false)
@@ -75,8 +80,9 @@ export default function Home() {
           let title = todoEl.getAttribute("title")
           let description = todoEl.getAttribute("description")
           let start = todoEl.getAttribute("start")
+          let end = todoEl.getAttribute("end")
 
-          return { id, title, start, description }
+          return { id, title, start, end, description }
         }
       })
     }
@@ -104,22 +110,31 @@ export default function Home() {
   // }
 
   const addTodo = (data: DropArg) => {       // id mss later nog op andere manier doen
-    // console.log("DATA", data)
-    const selectedTodo = todos.find(todo => todo.title === data.draggedEl.innerText) || { title: 'Er ging iets mis', description: 'Dit is geen todo', id: 999, backgroundColor: 'red', borderColor: "darkred", textColor: 'darkred' }
+    console.log("DATA", data)
+    const selectedTodo = todos.find(todo => todo.title === data.draggedEl.innerText) || { title: 'Er ging iets mis', description: 'Dit is geen todo', id: 999, backgroundColor: 'red', borderColor: "darkred", textColor: 'darkred', duration : 0 }
+   
+    console.log("selected", selectedTodo.duration)
+
+    const start = data.date; // assuming data.date is a Date object
+    const end = new Date(start.getTime() + selectedTodo.duration * 60 * 60 * 1000);
+
     const todo = {
       ...newTodo,
       id: new Date().getTime(),
       title: selectedTodo.title,
       description: selectedTodo.description,
       allDay: data.allDay,
-      start: data.date.toISOString(),
+      start: start.toISOString(), // Convert to ISO string
+      end: end.toISOString(),
       backgroundColor: selectedTodo.backgroundColor,
       borderColor: selectedTodo.borderColor,
     }
 
+
     setTodos(todos.filter(todo => todo.title !== data.draggedEl.innerText))
 
     setAllTodos([...allTodos, todo])
+    console.log(allTodos)
   }
 
   const handleDeleteModal = (data: any) => {
@@ -172,6 +187,13 @@ export default function Home() {
     setNewTodo({
       ...newTodo,
       description: e.target.value
+    })
+  }
+
+  const handleChangeDuration = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setNewTodo({
+      ...newTodo,
+      duration: Number(e.target.value)
     })
   }
 
@@ -302,7 +324,7 @@ export default function Home() {
 
         <DeleteDialog {...{ showDeleteModal, setShowDeleteModal, handleDelete, handleCloseModal }} />
 
-        <CreateTodoDialog {...{ newTodo, showCreateModal, setShowCreateModal, handleSubmit, handleChange, handleChangeDescr, handleCloseModal, handleAddToList, isListTodo, setIsListTodo, handleChangeColor }} />
+        <CreateTodoDialog {...{ newTodo, showCreateModal, setShowCreateModal, handleSubmit, handleChange, handleChangeDescr, handleCloseModal, handleAddToList, isListTodo, setIsListTodo, handleChangeColor, handleChangeDuration }} />
 
         <ShowTodoDialog {...{ selectedTodo, showDisplayModal, setShowDisplayModal, handleDeleteModal, setTodoAsDone }}></ShowTodoDialog>
 
