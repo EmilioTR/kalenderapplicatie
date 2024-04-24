@@ -69,14 +69,16 @@ export default function ShowTodoDialog({ selectedTodo, showDisplayModal, setShow
                                             >
                                             Verwijder
                                         </button>
-
+{showDisplayModal ? !selectedTodo.done &&   
                                         <button
                                             type="button"
                                             className="inline-flex justify-center rounded-md border border-transparent !bg-green-100 px-4 py-2 text-md font-medium text-green-900 hover:!bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                                             onClick={() => setTodoAsDone(selectedTodo)}
+                                            
                                         >
                                             Gedaan
                                         </button>
+                                      :  null}
                                     </div>
                                 </div>
                             </Dialog.Panel>
