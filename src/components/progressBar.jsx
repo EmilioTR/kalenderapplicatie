@@ -14,7 +14,7 @@ export default function ProgressBar({
             setShowProgressNumber(100)
             setIsConfettiVisible(true);
             setTimeout(() => {
-                setShowProgressNumber(0);
+                setShowProgressNumber(doneTodos.length%5 * 20);
                 setIsConfettiVisible(false)
               }, 1500);}
         else{
