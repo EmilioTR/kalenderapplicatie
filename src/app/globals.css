@@ -52,3 +52,22 @@ input {
   @apply bg-violet-500 border border-violet-600 ;
   
 }
+
+/* Targeting the scrollbar for WebKit-based browsers */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+  height: 12px; /* Height of the horizontal scrollbar */
+}
+
+/* Styling the scrollbar thumb with a transparent background and rounded corners */
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3); /* Semi-transparent dark background */
+  border-radius: 6px; /* Rounded corners */
+  border: 2px solid transparent; /* Makes the corners even more rounded */
+  background-clip: content-box; /* Ensures the border affects the rounding */
+}
+
+/* Styling the scrollbar track */
+::-webkit-scrollbar-track {
+  background: transparent; /* Transparent background for the track */
+}
