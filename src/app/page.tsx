@@ -47,8 +47,8 @@ export default function Home() {
     id: 0,
     title: '',
     description: '',
-    backgroundColor: '',
-    borderColor: "",
+    backgroundColor: '#8b5cf6',
+    borderColor: "#8b5cf6",
     textColor: "",
     allDay: false,
     start: '',
@@ -303,7 +303,7 @@ export default function Home() {
               </button>
 
             </div>
-            <div className="h-[95%] overflow-x-clip overflow-y-scroll">
+            <div className="h-[95%] overflow-x-clip overflow-y-auto">
               {
                 todos.map(todo => (
                   <div

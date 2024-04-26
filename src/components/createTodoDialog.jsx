@@ -78,18 +78,17 @@ export default function CreateTodoDialog({
                                             
                                             <label htmlFor="color" className="text-left" >Categorie:</label>
                                             <select id="color" onChange={(e) => handleChangeColor(e)} className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6" >
-                                                <option value="">
+                                                <option value="#1c5bba">
                                                 Kies een kleur (default - violet)
                                                 </option>
-                                                <option value="#1c5bba">Blauw</option>
-                                                <option value="#c9c426">Geel</option>
-                                                <option value="#d63341">Rood</option>
-                                                <option value="#931c9e">Paars</option>
-
-                                                <option value="#3ac0cf">Cyaan</option>
-                                                <option value="#c210bf">Roze</option>
-                                                <option value="#cf841b">Oranje</option>
-                                                <option value="#8cb849">Lime</option>
+                                                <option value="#d63341">Belangrijk - (Rood)</option>
+                                                <option value="#cf841b">Famillie - (Oranje)</option>
+                                                <option value="#8cb849">Vrienden - (Lime)</option>
+                                                <option value="#931c9e">Werk - (Paars)</option>
+                                                <option value="#c9c426">School - (Geel)</option>
+                                                <option value="#1c5bba">Hobby - (Blauw)</option>
+                                                <option value="#3ac0cf">Sport - (Cyaan)</option>
+                                                <option value="#c210bf">Andere - (Roze)</option>
                                             </select>
 
                                             </div>
