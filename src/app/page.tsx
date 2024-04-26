@@ -28,22 +28,22 @@ interface Todo {
   backgroundColor: string;
   textColor: string;
   borderColor: string;
-  done : boolean;
-  duration : number;
+  done: boolean;
+  duration: number;
 }
 
 export default function Home() {
 
   const [todos, setTodos] = useState<Todo[]>([
-    { title: 'Voetballen', description: 'Ik moet gaan voetballen, het is training', id: 0, backgroundColor: '#3ac0cf', borderColor: "#3ac0cf", textColor: 'white' ,allDay: false, start: '', end: '' ,done : false, duration : 2.5},
-    { title: 'Fietsen', description: 'Voorbereiden op fietstoernooi, moet een fietstour van 20km fietsen onder de 40 minuten', id: 1, backgroundColor: '#3ac0cf', borderColor: "#3ac0cf", textColor: 'white' ,allDay: false, start: '', end: ''  , done : false, duration : 2},
-    { title: 'Cinema met Carlos', description: 'We gaan eindelijk Dune 2 gaan kijken!!! Lisan Al Gaiiiib!', id: 2, backgroundColor: '#8cb849', borderColor: "#8cb849", textColor: 'white', allDay: false, start: '', end: '' , done : false, duration : 3 },
-    { title: 'Taak Wiskunde II afwerken', description: 'Oefening 1.3 t.e.m. oef 3.3 afwerken. DEADLINE: 17/06', id: 3, backgroundColor: '#c9c426', borderColor: "#c9c426", textColor: 'white', allDay: false, start: '', end: '' , done : false , duration : 4.5},
-    { title: 'Maandelijkse checkup van oma bij het ziekenhuis', description: 'Moet oma voeren naar het ziekenhuis om haar bloed te laten checken --- verder is dit een beschrijving van de vijfde taak die eigelijk ook wel een zeer lange beschrijving heeft om de UI eens te testen want je weet nooit wat er kan gebeuren in het leven...', id: 5, backgroundColor: '#d63341', borderColor: "#d63341", textColor: 'white', allDay: false, start: '', end: '' , done : false , duration : 2 },
+    { title: 'Voetballen', description: 'Ik moet gaan voetballen, het is training', id: 0, backgroundColor: '#3ac0cf', borderColor: "#3ac0cf", textColor: 'white', allDay: false, start: '', end: '', done: false, duration: 2.5 },
+    { title: 'Fietsen', description: 'Voorbereiden op fietstoernooi, moet een fietstour van 20km fietsen onder de 40 minuten', id: 1, backgroundColor: '#3ac0cf', borderColor: "#3ac0cf", textColor: 'white', allDay: false, start: '', end: '', done: false, duration: 2 },
+    { title: 'Cinema met Carlos', description: 'We gaan eindelijk Dune 2 gaan kijken!!! Lisan Al Gaiiiib!', id: 2, backgroundColor: '#8cb849', borderColor: "#8cb849", textColor: 'white', allDay: false, start: '', end: '', done: false, duration: 3 },
+    { title: 'Taak Wiskunde II afwerken', description: 'Oefening 1.3 t.e.m. oef 3.3 afwerken. DEADLINE: 17/06', id: 3, backgroundColor: '#c9c426', borderColor: "#c9c426", textColor: 'white', allDay: false, start: '', end: '', done: false, duration: 4.5 },
+    { title: 'Maandelijkse checkup van oma bij het ziekenhuis', description: 'Moet oma voeren naar het ziekenhuis om haar bloed te laten checken --- verder is dit een beschrijving van de vijfde taak die eigelijk ook wel een zeer lange beschrijving heeft om de UI eens te testen want je weet nooit wat er kan gebeuren in het leven...', id: 5, backgroundColor: '#d63341', borderColor: "#d63341", textColor: 'white', allDay: false, start: '', end: '', done: false, duration: 2 },
   ])
 
 
-  const emptyTodo : Todo = {
+  const emptyTodo: Todo = {
     id: 0,
     title: '',
     description: '',
@@ -52,9 +52,9 @@ export default function Home() {
     textColor: "",
     allDay: false,
     start: '',
-    end: '' ,
-    done : false,
-    duration : 0
+    end: '',
+    done: false,
+    duration: 0
   }
 
   const [allTodos, setAllTodos] = useState<Todo[]>(data.events)
@@ -110,12 +110,12 @@ export default function Home() {
   // }
 
   const addTodo = (data: DropArg) => {       // id mss later nog op andere manier doen
- //   console.log("DATA", data)
-    const selectedTodo = todos.find(todo => todo.title === data.draggedEl.innerText) || { title: 'Er ging iets mis', description: 'Dit is geen todo', id: 999, backgroundColor: 'red', borderColor: "darkred", textColor: 'darkred', duration : 0 }
-   
-   // console.log("selected", selectedTodo.duration)
+    //   console.log("DATA", data)
+    const selectedTodo = todos.find(todo => todo.title === data.draggedEl.innerText) || { title: 'Er ging iets mis', description: 'Dit is geen todo', id: 999, backgroundColor: 'red', borderColor: "darkred", textColor: 'darkred', duration: 0 }
 
-    const start = data.date; 
+    // console.log("selected", selectedTodo.duration)
+
+    const start = data.date;
     const end = new Date(start.getTime() + selectedTodo.duration * 60 * 60 * 1000);
 
     const todo = {
@@ -124,7 +124,7 @@ export default function Home() {
       title: selectedTodo.title,
       description: selectedTodo.description,
       allDay: data.allDay,
-      start: start.toISOString(), 
+      start: start.toISOString(),
       end: end.toISOString(),
       backgroundColor: selectedTodo.backgroundColor,
       borderColor: selectedTodo.borderColor,
@@ -147,12 +147,12 @@ export default function Home() {
     setSelectedTodo(allTodos.filter(todo => Number(todo.id) === Number(data.event.id))[0])
   }
 
-  const handleShowListTodo = ( id: Number  ) => {
+  const handleShowListTodo = (id: Number) => {
     setShowListTodoModal(true)
-    todos.forEach(todo => { 
-     if(todo.id === id) {
-      setSelectedTodo({...todo, start: '', allDay: false})
-     }
+    todos.forEach(todo => {
+      if (todo.id === id) {
+        setSelectedTodo({ ...todo, start: '', allDay: false })
+      }
     })
   }
 
@@ -193,7 +193,7 @@ export default function Home() {
     })
   }
 
-  const handleChangeColor = (e:any ): void => {
+  const handleChangeColor = (e: any): void => {
     setNewTodo({
       ...newTodo,
       backgroundColor: `${e.value}`,
@@ -233,30 +233,40 @@ export default function Home() {
   }
 
   return (
-<>
-    <main className="h-screen hidden md:block">
+    <>
+      <main className="h-screen hidden md:block">
 
-      <div  className="border-b border-violet-100">
+        <div className="border-b border-violet-100">
 
-        <nav className="flex justify-between items-center px-5 py-2 ">
+          <nav className="grid items-center w-full px-5 py-2   ">
 
-          <h1 className="font-bold text-2xl text-gray-700"> Calendar</h1>
-        
+            <div className="justify-self-start row-start-1">
 
-          <ProgressBar { ...{doneTodos, } }></ProgressBar>
+              <h1 className="font-bold text-2xl text-gray-700 justify-self-start ">
+                Kalenderapp
+              </h1>
 
+            </div>
 
-          <button
-            className="inline-flex justify-center rounded-md h-fit border border-transparent items-center bg-violet-100 px-4 py-2 text-md font-medium text-violet-900 hover:bg-violet-200"
-            onClick={() => setOpenDrawer(!openDrawer)}
-          > Brain Dump </button>
+            <div className="justify-self-center row-start-1">
 
-        </nav>
-      </div>
+              <ProgressBar  {...{ doneTodos, }}></ProgressBar>
+            </div>
 
-      <div className="flex flex-row px-5">
-        
-        <div className="fc-view">
+            <div className="justify-self-end row-start-1">
+              <button
+                className="inline-flex rounded-md h-fit border border-transparent items-center bg-violet-100 px-4 py-4 text-md font-medium text-violet-900 hover:bg-violet-200"
+                onClick={() => setOpenDrawer(!openDrawer)}
+              > Brain Dump
+              </button>
+            </div>
+
+          </nav>
+        </div>
+
+        <div className="flex flex-row px-5">
+
+          <div className="fc-view">
             <FullCalendar
               plugins={[
                 dayGridPlugin,
@@ -283,69 +293,69 @@ export default function Home() {
               eventClick={(data) => handleShowModal(data)}
               height="80vh"
             />
-        </div>
+          </div>
 
-        <div className="lg:mr-5 lg:ml-2">
-          <div id="draggable-el" className="w-[150px] lg:w-[260px] border-2 p-2 rounded-md h-[78vh] mt-5 bg-violet-50">
-            
-            <div className="flex flex-row w-full justify-between">
-              <h1 className="font-bold text-lg text-center m-auto">
-                In te plannen Todos&apos;
-              </h1>
-              <button className="hover:text-slate-500"
-                onClick={() => {
-                  setIsListTodo(true)
-                  setShowCreateModal(true)
+          <div className="lg:mr-5 lg:ml-2">
+            <div id="draggable-el" className="w-[150px] lg:w-[260px] border-2 p-2 rounded-md h-[78vh] mt-5 bg-violet-50">
+
+              <div className="flex flex-row w-full justify-between">
+                <h1 className="font-bold text-lg text-center m-auto">
+                  In te plannen Todos&apos;
+                </h1>
+                <button className="hover:text-slate-500"
+                  onClick={() => {
+                    setIsListTodo(true)
+                    setShowCreateModal(true)
+                  }
+                  }>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
+                </button>
+
+              </div>
+              <div className="h-[95%] overflow-x-clip overflow-y-auto">
+                {
+                  todos.map(todo => (
+                    <div
+                      className={"fc-event text-slate-50 border border-slate-100 p-1 m-2 w-full rounded-md ml-auto text-center hover:opacity-85 "}
+                      style={{ backgroundColor: todo.backgroundColor }}
+                      title={todo.title}
+                      key={todo.id}
+                      onClick={() => handleShowListTodo(todo.id)}
+                    >
+                      {todo.title}
+
+                    </div>
+                  ))
                 }
-                }>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-              </button>
-
-            </div>
-            <div className="h-[95%] overflow-x-clip overflow-y-auto">
-              {
-                todos.map(todo => (
-                  <div
-                    className={"fc-event text-slate-50 border border-slate-100 p-1 m-2 w-full rounded-md ml-auto text-center hover:opacity-85 "}
-                    style={{ backgroundColor: todo.backgroundColor }} 
-                    title={todo.title}
-                    key={todo.id}
-                    onClick={() => handleShowListTodo(todo.id)}
-                  >
-                    {todo.title}
-
-                  </div>
-                ))
-              }
+              </div>
             </div>
           </div>
+
+          <DeleteDialog {...{ showDeleteModal, setShowDeleteModal, handleDelete, handleCloseModal }} />
+
+          <CreateTodoDialog {...{ newTodo, showCreateModal, setShowCreateModal, handleSubmit, handleChange, handleChangeDescr, handleCloseModal, handleAddToList, isListTodo, setIsListTodo, handleChangeColor, handleChangeDuration }} />
+
+          <ShowTodoDialog {...{ selectedTodo, showDisplayModal, setShowDisplayModal, handleDeleteModal, setTodoAsDone }}></ShowTodoDialog>
+
+          <ShowListTodo {...{ selectedTodo, showListTodoModal, setShowListTodoModal }} />
+
+          <BrainDumpDrawer {...{ openDrawer, setOpenDrawer }} />
+
+
         </div>
 
-        <DeleteDialog {...{ showDeleteModal, setShowDeleteModal, handleDelete, handleCloseModal }} />
+      </main>
 
-        <CreateTodoDialog {...{ newTodo, showCreateModal, setShowCreateModal, handleSubmit, handleChange, handleChangeDescr, handleCloseModal, handleAddToList, isListTodo, setIsListTodo, handleChangeColor, handleChangeDuration }} />
-
-        <ShowTodoDialog {...{ selectedTodo, showDisplayModal, setShowDisplayModal, handleDeleteModal, setTodoAsDone }}></ShowTodoDialog>
-
-        <ShowListTodo {...{selectedTodo, showListTodoModal, setShowListTodoModal}} />
-
-        <BrainDumpDrawer {...{ openDrawer, setOpenDrawer }} />
-
+      <div className="flex  md:hidden justify-center items-center align-middle content-center w-full h-[80vh] text-lg font-extrabold  ">
+        <div className="bg-slate-300 flex flex-col p-4 max-w-[80vw] rounded-md gap-3">
+          <p>Gelieve deze kalender op een groter scherm te openen voor een optimaal verloop van dit ondezoek.</p>
+          <p>Wegens beperkte tijd voor het bouwen van deze kalender is deze niet responsive voor schermen smaller dan 800px.</p>
+          <p>Bedankt voor uw begrip.</p>
+        </div>
 
       </div>
-
-    </main>
-
-  <div className="flex  md:hidden justify-center items-center align-middle content-center w-full h-[80vh] text-lg font-extrabold  ">
-    <div className="bg-slate-300 flex flex-col p-4 max-w-[80vw] rounded-md gap-3">
-      <p>Gelieve deze kalender op een groter scherm te openen voor een optimaal verloop van dit ondezoek.</p>
-      <p>Wegens beperkte tijd voor het bouwen van deze kalender is deze niet responsive voor schermen smaller dan 800px.</p>
-      <p>Bedankt voor uw begrip.</p>
-    </div>
-              
-  </div>  
-  </>
+    </>
   );
 }

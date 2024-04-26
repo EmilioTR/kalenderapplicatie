@@ -44,10 +44,11 @@ export default function ProgressBar({
             
             <div className="flex flex-row justify-between" >
                 <p>Score: {doneTodos.length}</p>
-                <button
+                {/* <button
                     className="inline-flex justify-center rounded-md border p-1 border-transparent items-center bg-violet-100 text-sm font-medium text-violet-900 hover:bg-violet-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                     onClick={() => console.log(allTodos)}
-                    > Progress</button>
+                    > Progress
+                </button> */}
             </div>
 
             <div className="flex flex-row gap-1 items-center">
