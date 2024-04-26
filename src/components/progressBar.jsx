@@ -4,6 +4,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 import { Box } from "@mui/material";
 
 import ConfettiPoppers from '@/components/confettiPoppers';
+import Image from 'next/image';
 
 export default function ProgressBar({
     doneTodos,
@@ -15,6 +16,7 @@ export default function ProgressBar({
         else if (doneTodos.length%5 === 0) {
             setShowProgressNumber(100)
             setIsConfettiVisible(true);
+            setLevel(Math.floor(doneTodos.length/5))
             setTimeout(() => {
                 setShowProgressNumber(doneTodos.length%5 * 20);
                 setIsConfettiVisible(false)
@@ -28,6 +30,7 @@ export default function ProgressBar({
     const [showProgressNumber, setShowProgressNumber] = useState(0)
     const [isConfettiVisible, setIsConfettiVisible] = useState(false);
 
+    const [level, setLevel] = useState(0);
 
 
     return (
@@ -47,12 +50,12 @@ export default function ProgressBar({
                     > Progress</button>
             </div>
 
-            <div className="flex flex-row gap-2 items-center">
-                <img alt="emptybadge" src='./images/emptybadge.png' className="h-8"></img>
+            <div className="flex flex-row gap-1 items-center">
+                <Image alt="current" width={80} height={80}  src={`/images/badgelvl${level}.png`} />
                 <Box className="w-36">
                     <LinearProgress variant="determinate" value={showProgressNumber} />
                 </Box>
-                <img alt="badge" src='./images/medail.png' className="h-8"></img>
+                <Image alt="next" width={80} height={80} src={`/images/badgelvl${level + 1}.png`} />
 
             </div>
 
