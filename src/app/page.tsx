@@ -237,8 +237,8 @@ export default function Home() {
   }
 
   return (
-
-    <main className="h-screen">
+<>
+    <main className="h-screen hidden md:block">
 
       <div  className="border-b border-violet-100">
 
@@ -289,8 +289,8 @@ export default function Home() {
             />
         </div>
 
-        <div className="mr-5 ml-2">
-          <div id="draggable-el" className=" w-[260px] border-2 p-2 rounded-md h-[78vh] mt-5 bg-violet-50">
+        <div className="lg:mr-5 lg:ml-2">
+          <div id="draggable-el" className="w-[150px] lg:w-[260px] border-2 p-2 rounded-md h-[78vh] mt-5 bg-violet-50">
             
             <div className="flex flex-row w-full justify-between">
               <h1 className="font-bold text-lg text-center m-auto">
@@ -341,5 +341,15 @@ export default function Home() {
       </div>
 
     </main>
+
+  <div className="flex  md:hidden justify-center items-center align-middle content-center w-full h-[80vh] text-lg font-extrabold  ">
+    <div className="bg-slate-300 flex flex-col p-4 max-w-[80vw] rounded-md gap-3">
+      <p>Gelieve deze kalender op een groter scherm te openen voor een optimaal verloop van dit ondezoek.</p>
+      <p>Wegens beperkte tijd voor het bouwen van deze kalender is deze niet responsive voor schermen smaller dan 800px.</p>
+      <p>Bedankt voor uw begrip.</p>
+    </div>
+              
+  </div>  
+  </>
   );
 }
