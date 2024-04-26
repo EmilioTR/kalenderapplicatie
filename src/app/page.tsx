@@ -110,12 +110,12 @@ export default function Home() {
   // }
 
   const addTodo = (data: DropArg) => {       // id mss later nog op andere manier doen
-    console.log("DATA", data)
+ //   console.log("DATA", data)
     const selectedTodo = todos.find(todo => todo.title === data.draggedEl.innerText) || { title: 'Er ging iets mis', description: 'Dit is geen todo', id: 999, backgroundColor: 'red', borderColor: "darkred", textColor: 'darkred', duration : 0 }
    
-    console.log("selected", selectedTodo.duration)
+   // console.log("selected", selectedTodo.duration)
 
-    const start = data.date; // assuming data.date is a Date object
+    const start = data.date; 
     const end = new Date(start.getTime() + selectedTodo.duration * 60 * 60 * 1000);
 
     const todo = {
@@ -124,7 +124,7 @@ export default function Home() {
       title: selectedTodo.title,
       description: selectedTodo.description,
       allDay: data.allDay,
-      start: start.toISOString(), // Convert to ISO string
+      start: start.toISOString(), 
       end: end.toISOString(),
       backgroundColor: selectedTodo.backgroundColor,
       borderColor: selectedTodo.borderColor,
@@ -149,15 +149,11 @@ export default function Home() {
 
   const handleShowListTodo = ( id: Number  ) => {
     setShowListTodoModal(true)
-    //console.log(yap);
-    //const peter = todos.filter(todo => {console.log(todo.id , yap), Number(todo.id) === Number(yap)})
     todos.forEach(todo => { 
      if(todo.id === id) {
       setSelectedTodo({...todo, start: '', allDay: false})
      }
     })
-    //console.log(peter);
-   // setSelectedTodo()
   }
 
   const handleDelete = () => {
@@ -197,11 +193,11 @@ export default function Home() {
     })
   }
 
-  const handleChangeColor = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleChangeColor = (e:any ): void => {
     setNewTodo({
       ...newTodo,
-      backgroundColor: `${e.target.value}`,
-      borderColor: `${e.target.value}`,
+      backgroundColor: `${e.value}`,
+      borderColor: `${e.value}`,
       textColor: "white",
     })
   }
