@@ -238,26 +238,29 @@ export default function Home() {
 
   return (
 
-    <>
-      <nav className="flex justify-between border-b border-violet-100 p-4">
+    <main className="h-screen">
 
-        <h1 className="font-bold text-2xl text-gray-700"> Calendar</h1>
-       
+      <div  className="border-b border-violet-100">
 
-        <ProgressBar { ...{doneTodos, } }></ProgressBar>
+        <nav className="flex justify-between items-center px-5 py-2 ">
+
+          <h1 className="font-bold text-2xl text-gray-700"> Calendar</h1>
+        
+
+          <ProgressBar { ...{doneTodos, } }></ProgressBar>
 
 
-        <button
-          className="inline-flex justify-center rounded-md border border-transparent items-center bg-violet-100 px-4 py-2 text-md font-medium text-violet-900 hover:bg-violet-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-          onClick={() => setOpenDrawer(!openDrawer)}
-        > Brain Dump </button>
+          <button
+            className="inline-flex justify-center rounded-md h-fit border border-transparent items-center bg-violet-100 px-4 py-2 text-md font-medium text-violet-900 hover:bg-violet-200"
+            onClick={() => setOpenDrawer(!openDrawer)}
+          > Brain Dump </button>
 
-      </nav>
+        </nav>
+      </div>
 
-      <main className="flex h-min-screen flex-col items-center justify-between">
-        <div className="fc-view grid grid-cols-10 p-5">
-          <div className="col-span-8">
-
+      <div className="flex flex-row px-5">
+        
+        <div className="fc-view">
             <FullCalendar
               plugins={[
                 dayGridPlugin,
@@ -282,11 +285,13 @@ export default function Home() {
               select={(data) => handleDateSelect(data)}
               drop={(data) => addTodo(data)}
               eventClick={(data) => handleShowModal(data)}
-              height={800}
+              height="80vh"
             />
-          </div>
+        </div>
 
-          <div id="draggable-el" className="ml-8 w-[260px] border-2 p-2 rounded-md mt-16 h-[495px] bg-violet-50">
+        <div className="mr-5 ml-2">
+          <div id="draggable-el" className=" w-[260px] border-2 p-2 rounded-md h-[78vh] mt-5 bg-violet-50">
+            
             <div className="flex flex-row w-full justify-between">
               <h1 className="font-bold text-lg text-center m-auto">
                 In te plannen Todos&apos;
@@ -333,8 +338,8 @@ export default function Home() {
         <BrainDumpDrawer {...{ openDrawer, setOpenDrawer }} />
 
 
-      </main>
+      </div>
 
-    </>
+    </main>
   );
 }
