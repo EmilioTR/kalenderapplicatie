@@ -244,17 +244,17 @@ export default function Home() {
 
   const handleEventResize = (info : any) => {
 
-    console.log(info.event)
+   // console.log(info.event)
 
     const updated = allTodos.find(events => Number(info.event.id) === Number(events.id))
     const newTodoList = allTodos.filter(events => Number(info.event.id) !== Number(events.id))
 
-    console.log(updated)
+    // console.log(updated)
 
-    console.log(info.event.id)
-    console.log(info.event.start)
-    console.log(info.event.end)
-    console.log(info.event.allDay)
+    // console.log(info.event.id)
+    // console.log(info.event.start)
+    // console.log(info.event.end)
+    // console.log(info.event.allDay)
 
     if(updated){
       updated.start = info.event.start
