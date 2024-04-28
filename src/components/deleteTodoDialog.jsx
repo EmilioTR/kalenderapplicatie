@@ -3,10 +3,10 @@ import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/16/solid";
 
-export default function DeleteDialog({ showDeleteModal, setShowDeleteModal, handleDelete, handleCloseModal }) {
+export default function DeleteDialog({ showDeleteModal, setShowDeleteModal, handleDelete, handleCloseModal, setShowDisplayModal, setShowListTodoModal, isListTodo }) {
   return (
     <Transition.Root show={showDeleteModal} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setShowDeleteModal}>
+      <Dialog as="div" className="relative z-10" onClose={handleCloseModal}>
         <Transition.Child as={Fragment}
           enter="ease-out duration-300"
           enterFrom="opacity-0"
@@ -41,7 +41,7 @@ export default function DeleteDialog({ showDeleteModal, setShowDeleteModal, hand
                       </Dialog.Title>
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">
-                          Ben je zeker dat je dit event wil verwijderen??
+                          Bent u zeker dit event te willen verwijderen?
                         </p>
                       </div>
                     </div>
@@ -55,7 +55,13 @@ export default function DeleteDialog({ showDeleteModal, setShowDeleteModal, hand
                   </button>
                   <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md !bg-white px-3 py-2 text-sm font-semibold text-gray-900 
                 shadow-sm ring-1 ring-inset ring-gray-300 hover:!bg-gray-100 sm:mt-0 sm:w-auto"
-                    onClick={handleCloseModal}
+                    onClick={() => {
+                      setShowDeleteModal(false) 
+                      console.log(isListTodo)
+                      isListTodo ?  setShowListTodoModal(true) : setShowDisplayModal(true)
+                      handleCloseModal
+                    }
+                    }
                   >
                     Annnuleren
                   </button>

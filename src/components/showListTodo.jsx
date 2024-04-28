@@ -2,11 +2,11 @@ import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/16/solid";
 
-export default function ShowListTodo({ selectedTodo, showListTodoModal, setShowListTodoModal }) {
+export default function ShowListTodo({ selectedTodo, showListTodoModal, setShowListTodoModal, handleDeleteModal, closeShowListTodo, handleCloseModal }) {
 
     return (
         <Transition.Root show={showListTodoModal} as={Fragment}>
-            <Dialog as="div" className="relative z-10" onClose={setShowListTodoModal}>
+            <Dialog as="div" className="relative z-10" onClose={closeShowListTodo}>
                 <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"
@@ -56,7 +56,12 @@ export default function ShowListTodo({ selectedTodo, showListTodoModal, setShowL
                                         <button
                                             type="button"
                                             className="inline-flex justify-center rounded-md border border-transparent !bg-red-100 px-4 py-2 text-md font-medium text-red-900 hover:!bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
-                                            onClick={() => handleDeleteModal(selectedTodo)}
+                                            onClick={() =>{
+                                                setShowListTodoModal(false)
+                                                console.log(selectedTodo)
+                                                handleDeleteModal(selectedTodo)    
+                                            }
+                                            }
                                             >
                                             Verwijder
                                         </button>

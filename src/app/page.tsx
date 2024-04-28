@@ -142,12 +142,19 @@ export default function Home() {
     setIdToDelete(Number(data.id))
   }
 
+  const closeShowListTodo = () => {
+    setShowListTodoModal(false)
+    setIsListTodo(false)
+  }
+
   const handleShowModal = (data: { event: { id: string } }) => {
+    console.log(isListTodo)
     setShowDisplayModal(true)
     setSelectedTodo(allTodos.filter(todo => Number(todo.id) === Number(data.event.id))[0])
   }
 
   const handleShowListTodo = (id: Number) => {
+    setIsListTodo(true)
     setShowListTodoModal(true)
     todos.forEach(todo => {
       if (todo.id === id) {
@@ -157,16 +164,19 @@ export default function Home() {
   }
 
   const handleDelete = () => {
+    if(isListTodo){
+      setTodos(todos.filter(todo => Number(todo.id) !== Number(idToDelete)))
+    }
     setAllTodos(allTodos.filter(todo => Number(todo.id) !== Number(idToDelete)))
     setShowDeleteModal(false)
     setIdToDelete(null)
   }
 
   const handleCloseModal = () => {
+    setShowDeleteModal(false)
     setShowCreateModal(false)
     setIsListTodo(false)
     setNewTodo(emptyTodo)
-    setShowDeleteModal(false)
     setIdToDelete(null)
 
   }
@@ -318,7 +328,7 @@ export default function Home() {
                 {
                   todos.map(todo => (
                     <div
-                      className={"fc-event text-slate-50 border border-slate-100 p-1 m-2 w-full rounded-md ml-auto text-center hover:opacity-85 "}
+                      className={"fc-event text-slate-50 border border-slate-100 p-1 m-2 w-full rounded-md ml-auto text-center hover:opacity-85 cursor-grab active:cursor-grabbing"}
                       style={{ backgroundColor: todo.backgroundColor }}
                       title={todo.title}
                       key={todo.id}
@@ -333,13 +343,13 @@ export default function Home() {
             </div>
           </div>
 
-          <DeleteDialog {...{ showDeleteModal, setShowDeleteModal, handleDelete, handleCloseModal }} />
+          <DeleteDialog {...{ showDeleteModal, setShowDeleteModal, handleDelete, handleCloseModal, setShowDisplayModal, setShowListTodoModal, isListTodo  }} />
 
           <CreateTodoDialog {...{ newTodo, showCreateModal, setShowCreateModal, handleSubmit, handleChange, handleChangeDescr, handleCloseModal, handleAddToList, isListTodo, setIsListTodo, handleChangeColor, handleChangeDuration }} />
 
           <ShowTodoDialog {...{ selectedTodo, showDisplayModal, setShowDisplayModal, handleDeleteModal, setTodoAsDone }}></ShowTodoDialog>
 
-          <ShowListTodo {...{ selectedTodo, showListTodoModal, setShowListTodoModal }} />
+          <ShowListTodo {...{ selectedTodo, showListTodoModal, setShowListTodoModal, handleDeleteModal, handleCloseModal , closeShowListTodo}} />
 
           <BrainDumpDrawer {...{ openDrawer, setOpenDrawer }} />
 
