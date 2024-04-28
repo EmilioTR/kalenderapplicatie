@@ -134,7 +134,7 @@ export default function Home() {
     setTodos(todos.filter(todo => todo.title !== data.draggedEl.innerText))
 
     setAllTodos([...allTodos, todo])
-    console.log(allTodos)
+    //console.log(allTodos)
   }
 
   const handleDeleteModal = (data: any) => {
@@ -148,7 +148,7 @@ export default function Home() {
   }
 
   const handleShowModal = (data: { event: { id: string } }) => {
-    console.log(isListTodo)
+   //console.log(isListTodo)
     setShowDisplayModal(true)
     setSelectedTodo(allTodos.filter(todo => Number(todo.id) === Number(data.event.id))[0])
   }
@@ -242,6 +242,32 @@ export default function Home() {
     setAllTodos([...allTodos, todo])
   }
 
+  const handleEventResize = (info : any) => {
+
+    console.log(info.event)
+
+    const updated = allTodos.find(events => Number(info.event.id) === Number(events.id))
+    const newTodoList = allTodos.filter(events => Number(info.event.id) !== Number(events.id))
+
+    console.log(updated)
+
+    console.log(info.event.id)
+    console.log(info.event.start)
+    console.log(info.event.end)
+    console.log(info.event.allDay)
+
+    if(updated){
+      updated.start = info.event.start
+      updated.end = info.event.end
+      updated.allDay = info.event.allDay
+      
+      setAllTodos([...newTodoList, updated])
+    }
+
+    
+    
+  }
+
   return (
     <>
       <main className="h-screen hidden md:block">
@@ -302,6 +328,8 @@ export default function Home() {
               drop={(data) => addTodo(data)}
               eventClick={(data) => handleShowModal(data)}
               height="80vh"
+              eventResize={(info) => handleEventResize(info)}
+              eventDrop={(info) => handleEventResize(info)}
             />
           </div>
 
