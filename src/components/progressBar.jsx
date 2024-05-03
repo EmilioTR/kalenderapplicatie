@@ -5,6 +5,7 @@ import { Box } from "@mui/material";
 
 import ConfettiPoppers from '@/components/confettiPoppers';
 import Image from 'next/image';
+import CongratulationDialog from '@/components/congratulationDialog'; 
 
 export default function ProgressBar({
     doneTodos,
@@ -16,6 +17,7 @@ export default function ProgressBar({
         else if (doneTodos.length%5 === 0) {
             setShowProgressNumber(100)
             setIsConfettiVisible(true);
+            setShowCongratulations(true)
             setLevel(Math.floor(doneTodos.length/5))
             setTimeout(() => {
                 setShowProgressNumber(doneTodos.length%5 * 20);
@@ -29,7 +31,7 @@ export default function ProgressBar({
     //const { width, height } = useWindowSize()
     const [showProgressNumber, setShowProgressNumber] = useState(0)
     const [isConfettiVisible, setIsConfettiVisible] = useState(false);
-
+    const [showCongratulations, setShowCongratulations] = useState(true);
     const [level, setLevel] = useState(0);
 
 
@@ -59,7 +61,7 @@ export default function ProgressBar({
                 <Image alt="next" width={80} height={80} src={`/images/badgelvl${level + 1}.png`} />
 
             </div>
-
+                <CongratulationDialog {...{ showCongratulations, setShowCongratulations }} />
         </div>
     </>
     )
