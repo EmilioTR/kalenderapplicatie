@@ -3,7 +3,6 @@ import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/16/solid";
 import { Box } from '@mui/material';
-import Select, { components } from 'react-select';
 import FormWithColorSelect from '@/components/colorDropdown'
 
 
