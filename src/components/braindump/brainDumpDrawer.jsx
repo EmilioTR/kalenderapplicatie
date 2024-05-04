@@ -4,7 +4,7 @@ import DialogTitle from '@mui/joy/DialogTitle';
 import DialogContent from '@mui/joy/DialogContent';
 import Sheet from '@mui/joy/Sheet';
 import Divider from '@mui/joy/Divider';
-import BrainDumpEditor from '@/components/brainDumpEditor'
+import BrainDumpEditor from '@/components//braindump/brainDumpEditor'
 
 
 

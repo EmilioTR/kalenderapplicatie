@@ -10,10 +10,10 @@ import { useEffect, useState } from "react";
 import DeleteDialog from "@/components/deleteTodoDialog";
 import CreateTodoDialog from "@/components/createTodoDialog";
 import ShowTodoDialog from "@/components/showTodoDialog";
-import BrainDumpDrawer from "@/components/brainDumpDrawer";
+import BrainDumpDrawer from "@/components/braindump/brainDumpDrawer";
 import { EventSourceInput } from "@fullcalendar/core/index.js";
 import ShowListTodo from '@/components/showListTodo';
-import ProgressBar from '@/components/progressBar';
+import ProgressBar from '@/components/badges/progressBar';
 import data from '@/app/data/defaultEvents.json'
 
 

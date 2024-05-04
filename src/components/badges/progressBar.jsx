@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react'
 import LinearProgress from '@mui/material/LinearProgress';
 import { Box } from "@mui/material";
 
-import ConfettiPoppers from '@/components/confettiPoppers';
+import ConfettiPoppers from '@/components/badges/confettiPoppers';
 import Image from 'next/image';
-import CongratulationDialog from '@/components/congratulationDialog'; 
+import CongratulationDialog from '@/components/badges/congratulationDialog'; 
 
 export default function ProgressBar({
     doneTodos,
