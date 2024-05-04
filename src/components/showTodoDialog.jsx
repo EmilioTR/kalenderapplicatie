@@ -1,17 +1,7 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { CheckIcon } from "@heroicons/react/16/solid";
 
 export default function ShowTodoDialog({ selectedTodo, showDisplayModal, setShowDisplayModal, handleDeleteModal, setTodoAsDone }) {
-
-    /*
-        HIER ALLES VAN DE TODO WEERGEVEN
-        De delete handelen
-        een description toevoegen aan de todo model
-
-        mss later ook een checked uitbreiden
-    */
-
 
     return (
         <Transition.Root show={showDisplayModal} as={Fragment}>
@@ -41,10 +31,9 @@ export default function ShowTodoDialog({ selectedTodo, showDisplayModal, setShow
                         >
                             <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                                 <div className="flex flex-row w-full justify-between">
-                                <Dialog.Title as="h3" className="text-2xl font-semibold leading-6 text-gray-900">
+                                    <Dialog.Title as="h3" className="text-2xl font-semibold leading-6 text-gray-900">
                                         {showDisplayModal ? selectedTodo.title : ""}
                                     </Dialog.Title>
-
                                     <button
                                         type="button"
                                         className="flex justify-center items-center !bg-slate-50 hover:!bg-slate-300 text-slate-600 p-2 rounded-full w-8 h-8 ">
@@ -54,36 +43,29 @@ export default function ShowTodoDialog({ selectedTodo, showDisplayModal, setShow
                                     </button>
                                 </div>
                                 <div className="text-left">
-
-                                    
-
                                     <Dialog.Description className="h-fit mt-1">
                                         {showDisplayModal ? selectedTodo.description : ""}
                                     </Dialog.Description>
-
                                     <div className="flex justify-between items-center mt-5">
                                         <button
                                             type="button"
                                             className="inline-flex justify-center rounded-md border border-transparent !bg-red-100 px-4 py-2 text-md font-medium text-red-900 hover:!bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
-                                            onClick={() => 
-                                                {
-                                                    setShowDisplayModal(false)
-                                                    handleDeleteModal(selectedTodo)
-                                                }
-                                            }
-                                            >
+                                            onClick={() => {
+                                                setShowDisplayModal(false)
+                                                handleDeleteModal(selectedTodo)
+                                            }}
+                                        >
                                             Verwijder
                                         </button>
-{showDisplayModal ? !selectedTodo.done &&   
-                                        <button
-                                            type="button"
-                                            className="inline-flex justify-center rounded-md border border-transparent !bg-green-100 px-4 py-2 text-md font-medium text-green-900 hover:!bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                                            onClick={() => setTodoAsDone(selectedTodo)}
-                                            
-                                        >
-                                            Gedaan
-                                        </button>
-                                      :  null}
+                                        {showDisplayModal ? !selectedTodo.done &&
+                                            <button
+                                                type="button"
+                                                className="inline-flex justify-center rounded-md border border-transparent !bg-green-100 px-4 py-2 text-md font-medium text-green-900 hover:!bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                                                onClick={() => setTodoAsDone(selectedTodo)}
+                                            >
+                                                Gedaan
+                                            </button>
+                                            : null}
                                     </div>
                                 </div>
                             </Dialog.Panel>

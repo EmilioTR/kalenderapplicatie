@@ -1,10 +1,6 @@
-
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { CheckIcon } from "@heroicons/react/16/solid";
-import { Box } from '@mui/material';
 import FormWithColorSelect from '@/components/colorDropdown'
-
 
 export default function CreateTodoDialog({
     newTodo,
@@ -61,19 +57,19 @@ export default function CreateTodoDialog({
                                             Nieuwe Todo
                                         </Dialog.Title>
 
-                                        <FormWithColorSelect 
-                                        className='z-10'
-                                        {...{
-                                            isListTodo,
-                                            handleChange,
-                                            handleChangeDescr,
-                                            handleChangeColor,
-                                            handleChangeDuration,
-                                            handleAddToList,
-                                            handleSubmit,
-                                            newTodo,
-                                            handleCloseModal,
-                                        }} />
+                                        <FormWithColorSelect
+                                            className='z-10'
+                                            {...{
+                                                isListTodo,
+                                                handleChange,
+                                                handleChangeDescr,
+                                                handleChangeColor,
+                                                handleChangeDuration,
+                                                handleAddToList,
+                                                handleSubmit,
+                                                newTodo,
+                                                handleCloseModal,
+                                            }} />
 
                                     </div>
                                 </div>

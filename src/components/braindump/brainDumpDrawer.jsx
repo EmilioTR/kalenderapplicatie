@@ -7,7 +7,6 @@ import Divider from '@mui/joy/Divider';
 import BrainDumpEditor from '@/components//braindump/brainDumpEditor'
 
 
-
 export default function BrainDumpDrawer({ openDrawer, setOpenDrawer }) {
 
     return (
@@ -43,9 +42,8 @@ export default function BrainDumpDrawer({ openDrawer, setOpenDrawer }) {
                 <DialogTitle className="text-violet-800" >Brain Dump</DialogTitle>
                 <Divider sx={{ mt: 'auto', background: 'darkviolet' }} />
                 <DialogContent>
-                    <BrainDumpEditor/>
+                    <BrainDumpEditor />
                 </DialogContent>
-                
             </Sheet>
         </Drawer>
     )

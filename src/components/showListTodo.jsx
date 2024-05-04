@@ -1,8 +1,7 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { CheckIcon } from "@heroicons/react/16/solid";
 
-export default function ShowListTodo({ selectedTodo, showListTodoModal, setShowListTodoModal, handleDeleteModal, closeShowListTodo, handleCloseModal }) {
+export default function ShowListTodo({ selectedTodo, showListTodoModal, setShowListTodoModal, handleDeleteModal, closeShowListTodo}) {
 
     return (
         <Transition.Root show={showListTodoModal} as={Fragment}>
@@ -18,7 +17,6 @@ export default function ShowListTodo({ selectedTodo, showListTodoModal, setShowL
                 >
                     <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
                 </Transition.Child>
-
                 <div className="fixed inset-0 z-10 overflow-y-auto">
                     <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
                         <Transition.Child
@@ -32,10 +30,9 @@ export default function ShowListTodo({ selectedTodo, showListTodoModal, setShowL
                         >
                             <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                                 <div className="flex flex-row w-full justify-between">
-                                <Dialog.Title as="h3" className="text-2xl font-semibold leading-6 text-gray-900">
+                                    <Dialog.Title as="h3" className="text-2xl font-semibold leading-6 text-gray-900">
                                         {showListTodoModal ? selectedTodo.title : ""}
                                     </Dialog.Title>
-
                                     <button
                                         type="button"
                                         className="flex justify-center items-center !bg-slate-50 hover:!bg-slate-300 text-slate-600 p-2 rounded-full w-8 h-8 ">
@@ -45,27 +42,21 @@ export default function ShowListTodo({ selectedTodo, showListTodoModal, setShowL
                                     </button>
                                 </div>
                                 <div className="text-left">
-
-                                    
-
                                     <Dialog.Description className="h-fit mt-1">
                                         {showListTodoModal ? selectedTodo.description : ""}
                                     </Dialog.Description>
-
                                     <div className="flex justify-center items-center mt-5">
                                         <button
                                             type="button"
                                             className="inline-flex justify-center rounded-md border border-transparent !bg-red-100 px-4 py-2 text-md font-medium text-red-900 hover:!bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
-                                            onClick={() =>{
+                                            onClick={() => {
                                                 setShowListTodoModal(false)
                                                 console.log(selectedTodo)
-                                                handleDeleteModal(selectedTodo)    
-                                            }
-                                            }
-                                            >
+                                                handleDeleteModal(selectedTodo)
+                                            }}
+                                        >
                                             Verwijder
                                         </button>
-
                                     </div>
                                 </div>
                             </Dialog.Panel>

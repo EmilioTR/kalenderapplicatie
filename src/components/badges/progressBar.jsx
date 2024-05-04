@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from 'react'
-
 import LinearProgress from '@mui/material/LinearProgress';
 import { Box } from "@mui/material";
-
 import ConfettiPoppers from '@/components/badges/confettiPoppers';
 import Image from 'next/image';
 import CongratulationDialog from '@/components/badges/congratulationDialog';
 import BadgeCollecion from '@/components/badges/badgeCollection'
 
-export default function ProgressBar({
-    doneTodos,
-}) {
-
+export default function ProgressBar({ doneTodos }) {
     useEffect(() => {
         if (doneTodos.length === 0)
             setShowProgressNumber(0)
@@ -30,13 +25,11 @@ export default function ProgressBar({
         }
     }, [doneTodos])
 
-    //const { width, height } = useWindowSize()
     const [showProgressNumber, setShowProgressNumber] = useState(0)
     const [isConfettiVisible, setIsConfettiVisible] = useState(false);
     const [showCongratulations, setShowCongratulations] = useState(false);
     const [level, setLevel] = useState(0);
     const [openCollection, setOpenCollection] = useState(false);
-
 
     return (
         <>
@@ -46,8 +39,8 @@ export default function ProgressBar({
             }
 
             <div className="flex flex-col justify-center" >
-                <div className="flex flex-row justify-between mx-5 mb-1"> 
-                    { level < 5 && <div>
+                <div className="flex flex-row justify-between mx-5 mb-1">
+                    {level < 5 && <div>
                         Level: {level}
                     </div>}
                     <button
@@ -58,21 +51,19 @@ export default function ProgressBar({
                     </button>
                 </div>
 
-                {level >= 5 ? 
+                {level >= 5 ?
                     <div className='flex justify-center mt-1'>
                         <Image alt="max" width={100} height={100} src={`/images/badgelvl${level}.png`} />
                     </div>
-                    
-                :
+                    :
+                    <div className="flex flex-row gap-1 items-center">
+                        <Image alt="current" width={80} height={80} src={`/images/badgelvl${level}.png`} />
+                        <Box className="w-36">
+                            <LinearProgress variant="determinate" value={showProgressNumber} />
+                        </Box>
+                        <Image alt="next" width={80} height={80} src={`/images/badgelvl${level + 1}.png`} />
 
-                <div className="flex flex-row gap-1 items-center">
-                    <Image alt="current" width={80} height={80} src={`/images/badgelvl${level}.png`} />
-                    <Box className="w-36">
-                        <LinearProgress variant="determinate" value={showProgressNumber} />
-                    </Box>
-                    <Image alt="next" width={80} height={80} src={`/images/badgelvl${level + 1}.png`} />
-
-                </div>
+                    </div>
                 }
 
                 <CongratulationDialog {...{ showCongratulations, setShowCongratulations, level }} />

@@ -101,24 +101,13 @@ export default function Home() {
     setShowCreateModal(true)
   }
 
-  // const handleEventChange = (data: any) => {
-  //   console.log(data.event._def)
-  //   setNewTodo({...newTodo, title: data.event._def.title , allDay: data.event._def.allDay , ...data.event._def.extendedProps})
-  //   console.log(newTodo)
-  //   setAllTodos([...allTodos, newTodo])
-  //   setNewTodo(emptyTodo)
 
-  // }
 
-  const addTodo = (data: DropArg) => {       // id mss later nog op andere manier doen
-    //   console.log("DATA", data)
+  const addTodo = (data: DropArg) => {
+
     const selectedTodo = todos.find(todo => todo.title === data.draggedEl.innerText) || { title: 'Er ging iets mis', description: 'Dit is geen todo', id: 999, backgroundColor: 'red', borderColor: "darkred", textColor: 'darkred', duration: 0 }
-
-    // console.log("selected", selectedTodo.duration)
-
     const start = data.date;
     const end = new Date(start.getTime() + selectedTodo.duration * 60 * 60 * 1000);
-
     const todo = {
       ...newTodo,
       id: new Date().getTime(),
@@ -131,11 +120,8 @@ export default function Home() {
       borderColor: selectedTodo.borderColor,
     }
 
-
     setTodos(todos.filter(todo => todo.title !== data.draggedEl.innerText))
-
     setAllTodos([...allTodos, todo])
-    //console.log(allTodos)
   }
 
   const handleDeleteModal = (data: any) => {
@@ -149,7 +135,6 @@ export default function Home() {
   }
 
   const handleShowModal = (data: { event: { id: string } }) => {
-    //console.log(isListTodo)
     setShowDisplayModal(true)
     setSelectedTodo(allTodos.filter(todo => Number(todo.id) === Number(data.event.id))[0])
   }
@@ -244,41 +229,22 @@ export default function Home() {
   }
 
   const handleEventResize = (info: any) => {
-
-    // console.log(info.event)
-
     const updated = allTodos.find(events => Number(info.event.id) === Number(events.id))
     const newTodoList = allTodos.filter(events => Number(info.event.id) !== Number(events.id))
-
-    // console.log(updated)
-
-    // console.log(info.event.id)
-    // console.log(info.event.start)
-    // console.log(info.event.end)
-    // console.log(info.event.allDay)
-
     if (updated) {
       updated.start = info.event.start
       updated.end = info.event.end
       updated.allDay = info.event.allDay
-
       setAllTodos([...newTodoList, updated])
     }
-
-
-
   }
 
   return (
     <>
       <main className="h-screen hidden md:block">
-
         <div className="border-b border-violet-100">
-
           <nav className="grid items-center w-full px-5 py-2   ">
-
             <div className="justify-self-start row-start-1">
-
               <h1 className="font-bold text-2xl text-gray-700 justify-self-start ">
                 <span>
                   Kalenderapp
@@ -290,14 +256,10 @@ export default function Home() {
                   </a>
                 </span>
               </h1>
-
             </div>
-
             <div className="justify-self-center row-start-1">
-
               <ProgressBar  {...{ doneTodos, }}></ProgressBar>
             </div>
-
             <div className="justify-self-end row-start-1">
               <button
                 className="inline-flex rounded-md h-fit border border-transparent items-center bg-violet-100 px-4 py-4 text-md font-medium text-violet-900 hover:bg-violet-200"
@@ -305,12 +267,10 @@ export default function Home() {
               > Brain Dump
               </button>
             </div>
-
           </nav>
         </div>
 
         <div className="flex flex-row px-5">
-
           <div className="fc-view">
             <FullCalendar
               plugins={[
@@ -344,7 +304,6 @@ export default function Home() {
 
           <div className="lg:mr-5 lg:ml-2">
             <div id="draggable-el" className="w-[150px] lg:w-[260px] border-2 p-2 rounded-md h-[78vh] mt-5 bg-violet-50">
-
               <div className="flex flex-row w-full justify-between">
                 <h1 className="font-bold text-lg text-center m-auto">
                   In te plannen events
@@ -359,7 +318,6 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                   </svg>
                 </button>
-
               </div>
               <div className="h-[95%] overflow-x-clip overflow-y-auto">
                 {
@@ -372,7 +330,6 @@ export default function Home() {
                       onClick={() => handleShowListTodo(todo.id)}
                     >
                       {todo.title}
-
                     </div>
                   ))
                 }

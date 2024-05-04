@@ -1,12 +1,8 @@
-
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from 'next/image';
 
-
-
 export default function CongratulationDialog({ showCongratulations, setShowCongratulations, level }) {
-
 
     return (
         <Transition.Root show={showCongratulations} as={Fragment}>
@@ -36,9 +32,7 @@ export default function CongratulationDialog({ showCongratulations, setShowCongr
                             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                         >
                             <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all w-full max-w-lg p-5 py-6">
-
                                 <div className="text-center text-green-700">
-
                                     <Dialog.Title as="h3" className="text-2xl mb-3 font-bold leading-6 text-green-800">
                                         Proficiat!
                                     </Dialog.Title>
@@ -51,11 +45,9 @@ export default function CongratulationDialog({ showCongratulations, setShowCongr
                                             Als beloning heb je een nieuwe badge ontgrendeld en is deze toegevoegd aan jouw verzameling.
                                             Doe zo verder!
                                         </p>
-
                                     </Dialog.Description>
 
                                     <div className="flex flex-col w-full text-left mt-5 px-10 font-semibold">
-
                                         Verkregen badge:
                                         <div className="flex w-full justify-center my-3">
                                             <Image alt="current" width={150} height={150} src={`/images/badgelvl${level}.png`} />
@@ -69,8 +61,6 @@ export default function CongratulationDialog({ showCongratulations, setShowCongr
                                     >
                                         Top!
                                     </button>
-
-
                                 </div>
                             </Dialog.Panel>
                         </Transition.Child>

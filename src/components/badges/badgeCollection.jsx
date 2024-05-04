@@ -8,7 +8,6 @@ import Image from 'next/image';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 
-
 export default function BadgeCollecion({ openCollection, setOpenCollection, level }) {
 
     return (
@@ -17,19 +16,16 @@ export default function BadgeCollecion({ openCollection, setOpenCollection, leve
             onClose={() => setOpenCollection(false)}
             anchor='left'
             size='sm'
-
             slotProps={{
                 content: {
                     sx: {
                         bgcolor: 'transparent',
                         p: { md: 3, sm: 0 },
                         boxShadow: 'none',
-                        
                     },
                 },
             }}
         >
-
             <Sheet
                 sx={{
                     borderRadius: 'md',
@@ -41,7 +37,6 @@ export default function BadgeCollecion({ openCollection, setOpenCollection, leve
                     overflow: 'auto',
                 }}
             >
-
                 <ModalClose />
                 <DialogTitle className="text-violet-800" >Badge verzameling</DialogTitle>
                 <Divider sx={{ mt: 'auto', background: 'darkviolet' }} />
@@ -53,18 +48,13 @@ export default function BadgeCollecion({ openCollection, setOpenCollection, leve
                         }
                     </div>
                     <List>
-
                         {Array.from({ length: level }, (v, i) => (
                             <ListItem key={i}>
                                 <Image alt="badge" width={180} height={180} src={`/images/badgelvl${i + 1}.png`} />
                             </ListItem>
                         ))}
-
                     </List>
-
-
                 </DialogContent>
-
             </Sheet>
         </Drawer>
     )
