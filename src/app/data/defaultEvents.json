@@ -1,17 +1,132 @@
 {
     "events" : [
         {
-            "id": 1713963416583,
-            "title": "Naar de winkel",
-            "description": "Ik moet boodschappen gaan doen en kopen wat er op mijn boodschappenlijstje staat.",
-            "backgroundColor": "#3ac0cf",
-            "borderColor": "#3ac0cf",
-            "textColor": "",
+            "id": 1714826323453,
+            "title": "Star Wars Marathon",
+            "description": "Het is 'May the fourth'!!!  Ik moet al de Star Wars Films opnieuw kijken!",
+            "backgroundColor": "#1c5bba",
+            "borderColor": "#1c5bba",
+            "textColor": "white",
             "allDay": false,
-            "start": "2024-04-23T10:00:00.000Z",
-            "end": "2024-04-23T12:00:00.000Z",
+            "start": "2024-05-04T04:00:00.000Z",
+            "end": "2024-05-04T19:30:00.000Z",
             "done": false,
-            "duration" : 2
+            "duration": 0,
+            "startStr": "2024-05-04T06:00:00+02:00",
+            "endStr": "2024-05-04T21:30:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714826425877,
+            "title": "May the fourth be with you",
+            "description": "4 mei = star wars dag",
+            "backgroundColor": "#d63341",
+            "borderColor": "#d63341",
+            "textColor": "white",
+            "allDay": true,
+            "start": "2024-05-03T22:00:00.000Z",
+            "end": "2024-05-04T22:00:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-04",
+            "endStr": "2024-05-05",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
         },
         {
             "id": 1713963423968,
@@ -21,50 +136,1930 @@
             "borderColor": "#d63341",
             "textColor": "",
             "allDay": false,
-            "start": "2024-04-25T08:00:00.000Z",
-            "end": "2024-04-25T010:00:00.000Z",
+            "start": "2024-04-25T10:00:00.000Z",
+            "end": "2024-04-25T14:00:00.000Z",
             "done": false,
-            "duration" : 1
+            "duration": 1
         },
         {
-            "id": 1713963446304,
-            "title": "Nieuwe sui",
-            "description": "",
-            "backgroundColor": "",
-            "borderColor": "",
-            "textColor": "",
+            "id": 1714826523208,
+            "title": "Fietsen naar werk",
+            "description": "Sport en vervoer, super gezond",
+            "backgroundColor": "#3ac0cf",
+            "borderColor": "#3ac0cf",
+            "textColor": "white",
             "allDay": false,
-            "start": "2024-04-27T05:00:00.000Z",
+            "start": "2024-04-24T04:00:00.000Z",
+            "end": "2024-04-24T06:30:00.000Z",
             "done": false,
-            "end": "2024-04-27T09:30:00.000Z",
-            "duration" : 4.5
-        
+            "duration": 0,
+            "startStr": "2024-04-24T06:00:00+02:00",
+            "endStr": "2024-04-24T08:30:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
         },
         {
-            "id": 1713963492149,
-            "title": "Andere Taak",
-            "description": "nieuwe taak",
+            "id": 1714826586401,
+            "title": "Naar de winkel",
+            "description": "Ik moet boodschappen gaan doen en kopen wat er op mijn boodschappenlijstje staat.",
             "backgroundColor": "#c210bf",
             "borderColor": "#c210bf",
             "textColor": "white",
             "allDay": false,
-            "start": "2024-04-28T06:00:00.000Z",
+            "start": "2024-04-22T14:00:00.000Z",
+            "end": "2024-04-22T16:00:00.000Z",
             "done": false,
-            "end": "2024-04-28T10:30:00.000Z",
-            "duration" : 3.5
+            "duration": 0,
+            "startStr": "2024-04-22T15:00:00+02:00",
+            "endStr": "2024-04-22T19:00:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
         },
         {
-            "id": 171396348523968,
+            "id": 1714826614041,
+            "title": "Katten eten geven",
+            "description": "ossy en pepsi moeten ook eten",
+            "backgroundColor": "#8b5cf6",
+            "borderColor": "#8b5cf6",
+            "textColor": "white",
+            "allDay": false,
+            "start": "2024-04-23T10:00:00.000Z",
+            "end": "2024-04-23T10:30:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-04-23T12:00:00+02:00",
+            "endStr": "2024-04-23T12:30:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714826668517,
+            "title": "Werken",
+            "description": "Werken van 9u tot 16u",
+            "backgroundColor": "#931c9e",
+            "borderColor": "#931c9e",
+            "textColor": "white",
+            "allDay": true,
+            "start": "2024-05-05T22:00:00.000Z",
+            "end": "2024-05-08T22:00:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-06",
+            "endStr": "2024-05-09",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "dayGridMonth",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714826704908,
             "title": "werken",
-            "description": "Kaarten in de bib",
+            "description": "Werken van 9u tot 14u",
+            "backgroundColor": "#931c9e",
+            "borderColor": "#931c9e",
+            "textColor": "white",
+            "allDay": true,
+            "start": "2024-05-09T22:00:00.000Z",
+            "end": "2024-05-10T22:00:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-10",
+            "endStr": "2024-05-11",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "dayGridMonth",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714826734523,
+            "title": "Werken",
+            "description": "Werken van 9u tot 16u",
+            "backgroundColor": "#931c9e",
+            "borderColor": "#931c9e",
+            "textColor": "white",
+            "allDay": true,
+            "start": "2024-05-21T22:00:00.000Z",
+            "end": "2024-05-23T22:00:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-22",
+            "endStr": "2024-05-24",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "dayGridMonth",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714826750151,
+            "title": "Kermis in het dorp",
+            "description": "Het is dit weekend Kermis",
+            "backgroundColor": "#c210bf",
+            "borderColor": "#c210bf",
+            "textColor": "white",
+            "allDay": true,
+            "start": "2024-05-17T22:00:00.000Z",
+            "end": "2024-05-19T22:00:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-18",
+            "endStr": "2024-05-19",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "dayGridMonth",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714826802229,
+            "title": "Padellen met vrienden",
+            "description": "Samen padellen met Peter, Jan en Nick.\nDeze keer gaan Jan en ik winnen!",
+            "backgroundColor": "#8cb849",
+            "borderColor": "#8cb849",
+            "textColor": "white",
+            "allDay": false,
+            "start": "2024-05-11T12:00:00.000Z",
+            "end": "2024-05-11T15:00:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-11T14:00:00+02:00",
+            "endStr": "2024-05-11T17:00:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714826908013,
+            "title": "Taak voor school",
+            "description": "Zie opdracht 4b - 8c.   op pagina 46 - 53\nDeadline: vrijdag",
+            "backgroundColor": "#c9c426",
+            "borderColor": "#c9c426",
+            "textColor": "white",
+            "allDay": false,
+            "start": "2024-05-06T15:30:00.000Z",
+            "end": "2024-05-06T17:00:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-06T16:30:00+02:00",
+            "endStr": "2024-05-06T18:00:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714826970616,
+            "title": "Taak voor school",
+            "description": "Zie opdracht 4b - 8c.   op pagina 46 - 53\nDeadline: vrijdag",
+            "backgroundColor": "#c9c426",
+            "borderColor": "#c9c426",
+            "textColor": "white",
+            "allDay": false,
+            "start": "2024-05-07T15:30:00.000Z",
+            "end": "2024-05-07T17:00:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-07T17:30:00+02:00",
+            "endStr": "2024-05-07T19:00:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827012549,
+            "title": "Gamen met Michael",
+            "description": "Samen de campaign verder zetten",
+            "backgroundColor": "#1c5bba",
+            "borderColor": "#1c5bba",
+            "textColor": "white",
+            "allDay": false,
+            "start": "2024-05-09T09:00:00.000Z",
+            "end": "2024-05-09T14:30:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-09T11:00:00+02:00",
+            "endStr": "2024-05-09T16:30:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827086853,
+            "title": "Katten eten geven",
+            "description": "kleine snoezels hebben ook honger",
             "backgroundColor": "#cf841b",
             "borderColor": "#cf841b",
-            "textColor": "",
-            "allDay": true,
-            "start": "2024-04-25T08:00:00.000Z",
-            "end": "2024-04-26T010:00:00.000Z",
+            "textColor": "white",
+            "allDay": false,
+            "start": "2024-05-09T15:30:00.000Z",
+            "end": "2024-05-09T16:00:00.000Z",
             "done": false,
-            "duration" : 3
+            "duration": 0,
+            "startStr": "2024-05-09T17:30:00+02:00",
+            "endStr": "2024-05-09T18:00:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827162340,
+            "title": "Dringende Stand-Up meeting",
+            "description": "De klant komt langst voor het product te testen",
+            "backgroundColor": "#d63341",
+            "borderColor": "#d63341",
+            "textColor": "white",
+            "allDay": false,
+            "start": "2024-05-08T06:00:00.000Z",
+            "end": "2024-05-08T10:30:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-08T08:00:00+02:00",
+            "endStr": "2024-05-08T12:30:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827218553,
+            "title": "Fietsen",
+            "description": "Zondagse fietsroute",
+            "backgroundColor": "#3ac0cf",
+            "borderColor": "#3ac0cf",
+            "textColor": "white",
+            "allDay": false,
+            "start": "2024-05-12T05:30:00.000Z",
+            "end": "2024-05-12T08:30:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-12T05:30:00+02:00",
+            "endStr": "2024-05-12T09:30:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827261741,
+            "title": "Fietsen",
+            "description": "Zondagse fietsroute",
+            "backgroundColor": "#3ac0cf",
+            "borderColor": "#3ac0cf",
+            "textColor": "white",
+            "allDay": false,
+            "start": "2024-05-19T05:30:00.000Z",
+            "end": "2024-05-19T08:30:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-19T07:30:00+02:00",
+            "endStr": "2024-05-19T10:30:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827280413,
+            "title": "Fietsen",
+            "description": "Zondagse fietsroute",
+            "backgroundColor": "#3ac0cf",
+            "borderColor": "#3ac0cf",
+            "textColor": "white",
+            "allDay": false,
+            "start": "2024-05-05T05:30:00.000Z",
+            "end": "2024-05-05T08:30:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-05T07:30:00+02:00",
+            "endStr": "2024-05-05T10:30:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827302771,
+            "title": "Bachelorproef ",
+            "description": "Ik moet met mijn bachelorproef bezig zijn",
+            "backgroundColor": "#c9c426",
+            "borderColor": "#c9c426",
+            "textColor": "white",
+            "allDay": true,
+            "start": "2024-04-28T22:00:00.000Z",
+            "end": "2024-05-02T22:00:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-04-29",
+            "endStr": "2024-05-04",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827340074,
+            "title": "Vakantie",
+            "description": "Ik heb een weekje vakantie genomen",
+            "backgroundColor": "#cf841b",
+            "borderColor": "#cf841b",
+            "textColor": "white",
+            "allDay": true,
+            "start": "2024-04-28T22:00:00.000Z",
+            "end": "2024-05-02T22:00:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-04-29",
+            "endStr": "2024-05-03",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "dayGridMonth",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827392858,
+            "title": "Werken",
+            "description": "werkdagen",
+            "backgroundColor": "#931c9e",
+            "borderColor": "#931c9e",
+            "textColor": "white",
+            "allDay": true,
+            "start": "2024-04-21T22:00:00.000Z",
+            "end": "2024-04-24T22:00:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-04-22",
+            "endStr": "2024-04-25",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "dayGridMonth",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827427435,
+            "title": "Todo: Kalender applicatie verfijnen",
+            "description": "dit is gewoon een voorbeeld, beschouw dit als de uitleg",
+            "backgroundColor": "#8b5cf6",
+            "borderColor": "#8b5cf6",
+            "textColor": "white",
+            "allDay": false,
+            "start": "2024-04-30T09:30:00.000Z",
+            "end": "2024-04-30T11:30:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-04-30T11:30:00+02:00",
+            "endStr": "2024-04-30T12:00:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827473252,
+            "title": "Todo: Kalender applicatie verfijnen",
+            "description": "dit is gewoon een voorbeeld, beschouw dit als de uitleg\n",
+            "backgroundColor": "#8b5cf6",
+            "borderColor": "#8b5cf6",
+            "textColor": "",
+            "allDay": false,
+            "start": "2024-05-01T07:00:00.000Z",
+            "end": "2024-05-01T09:00:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-01T09:00:00+02:00",
+            "endStr": "2024-05-01T11:00:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827493177,
+            "title": "Naar bakker  en winkel",
+            "description": "Eten is op en onbijt nodig",
+            "backgroundColor": "#c210bf",
+            "borderColor": "#c210bf",
+            "textColor": "white",
+            "allDay": false,
+            "start": "2024-04-30T05:30:00.000Z",
+            "end": "2024-04-30T07:30:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-04-30T07:30:00+02:00",
+            "endStr": "2024-04-30T09:30:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827525733,
+            "title": "Tante eens bezoeken",
+            "description": "Ze is jarig, ik ga haar beter eens bezoeken",
+            "backgroundColor": "#cf841b",
+            "borderColor": "#cf841b",
+            "textColor": "white",
+            "allDay": false,
+            "start": "2024-05-02T11:00:00.000Z",
+            "end": "2024-05-02T14:00:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-02T08:00:00+02:00",
+            "endStr": "2024-05-02T11:00:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827579019,
+            "title": "Bowlen met Pieter",
+            "description": "",
+            "backgroundColor": "#8cb849",
+            "borderColor": "#8cb849",
+            "textColor": "white",
+            "allDay": false,
+            "start": "2024-04-29T13:00:00.000Z",
+            "end": "2024-04-29T15:30:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-04-29T15:00:00+02:00",
+            "endStr": "2024-04-29T17:30:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827620696,
+            "title": "Bowlen met Pieter",
+            "description": "",
+            "backgroundColor": "#8cb849",
+            "borderColor": "#8cb849",
+            "textColor": "white",
+            "allDay": false,
+            "start": "2024-05-13T08:30:00.000Z",
+            "end": "2024-05-13T11:30:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-13T10:30:00+02:00",
+            "endStr": "2024-05-13T13:30:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827637863,
+            "title": "Afspraak Dokter",
+            "description": "Moet een langsgaan",
+            "backgroundColor": "#d63341",
+            "borderColor": "#d63341",
+            "textColor": "white",
+            "allDay": false,
+            "start": "2024-05-15T05:30:00.000Z",
+            "end": "2024-05-15T07:30:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-15T07:30:00+02:00",
+            "endStr": "2024-05-15T09:30:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827686642,
+            "title": "Met familie naar pretpark",
+            "description": "BOBBEJAAAAAAAANLAAAAND!!!",
+            "backgroundColor": "#cf841b",
+            "borderColor": "#cf841b",
+            "textColor": "white",
+            "allDay": false,
+            "start": "2024-05-14T07:00:00.000Z",
+            "end": "2024-05-14T16:30:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-14T09:00:00+02:00",
+            "endStr": "2024-05-14T15:00:00+02:00",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "timeGridWeek",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827727370,
+            "title": "Rustdag",
+            "description": "een keertje rusten",
+            "backgroundColor": "#1c5bba",
+            "borderColor": "#1c5bba",
+            "textColor": "white",
+            "allDay": true,
+            "start": "2024-05-13T22:00:00.000Z",
+            "end": "2024-05-15T22:00:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-14",
+            "endStr": "2024-05-16",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "dayGridMonth",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827755366,
+            "title": "Verjaardag Tante",
+            "description": "ze wordt 48",
+            "backgroundColor": "#d63341",
+            "borderColor": "#d63341",
+            "textColor": "white",
+            "allDay": true,
+            "start": "2024-05-01T22:00:00.000Z",
+            "end": "2024-05-02T22:00:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-02",
+            "endStr": "2024-05-03",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "dayGridMonth",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
+        },
+        {
+            "id": 1714827806996,
+            "title": "Naar zee",
+            "description": "Boitreisje naar de zee met de Boys",
+            "backgroundColor": "#8cb849",
+            "borderColor": "#8cb849",
+            "textColor": "white",
+            "allDay": true,
+            "start": "2024-05-14T22:00:00.000Z",
+            "end": "2024-05-17T22:00:00.000Z",
+            "done": false,
+            "duration": 0,
+            "startStr": "2024-05-15",
+            "endStr": "2024-05-18",
+            "jsEvent": {
+                "isTrusted": true
+            },
+            "view": {
+                "type": "dayGridMonth",
+                "dateEnv": {
+                    "timeZone": "local",
+                    "canComputeOffset": true,
+                    "calendarSystem": {},
+                    "locale": {
+                        "codeArg": "nl",
+                        "codes": [
+                            "nl"
+                        ],
+                        "week": {
+                            "dow": 1,
+                            "doy": 4
+                        },
+                        "simpleNumberFormat": {},
+                        "options": {
+                            "buttonText": {
+                                "prev": "Vorige",
+                                "next": "Volgende",
+                                "today": "Vandaag",
+                                "year": "Jaar",
+                                "month": "Maand",
+                                "week": "Week",
+                                "day": "Dag",
+                                "list": "Lijst"
+                            },
+                            "allDayText": "Hele dag",
+                            "moreLinkText": "extra",
+                            "noEventsText": "Geen evenementen om te laten zien",
+                            "direction": "ltr",
+                            "weekText": "W",
+                            "weekTextLong": "Week",
+                            "closeHint": "Close",
+                            "timeHint": "Time",
+                            "eventHint": "Event"
+                        }
+                    },
+                    "weekDow": 1,
+                    "weekDoy": 4,
+                    "weekText": "W",
+                    "weekTextLong": "Week",
+                    "cmdFormatter": null,
+                    "defaultSeparator": " - "
+                }
+            }
         }
     ]
 }
