@@ -31,7 +31,7 @@ export default function ProgressBar({
     //const { width, height } = useWindowSize()
     const [showProgressNumber, setShowProgressNumber] = useState(0)
     const [isConfettiVisible, setIsConfettiVisible] = useState(false);
-    const [showCongratulations, setShowCongratulations] = useState(true);
+    const [showCongratulations, setShowCongratulations] = useState(false);
     const [level, setLevel] = useState(0);
 
 
@@ -44,14 +44,14 @@ export default function ProgressBar({
 
         <div className="flex flex-col justify-center" >
             
-            <div className="flex flex-row justify-between" >
-                <p>Score: {doneTodos.length}</p>
+            {/* <div className="flex flex-row justify-between" >
+                <p>Score: {doneTodos.length}</p> */}
                 {/* <button
                     className="inline-flex justify-center rounded-md border p-1 border-transparent items-center bg-violet-100 text-sm font-medium text-violet-900 hover:bg-violet-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                     onClick={() => console.log(allTodos)}
                     > Progress
                 </button> */}
-            </div>
+            {/* </div> */}
 
             <div className="flex flex-row gap-1 items-center">
                 <Image alt="current" width={80} height={80}  src={`/images/badgelvl${level}.png`} />
@@ -61,7 +61,7 @@ export default function ProgressBar({
                 <Image alt="next" width={80} height={80} src={`/images/badgelvl${level + 1}.png`} />
 
             </div>
-                <CongratulationDialog {...{ showCongratulations, setShowCongratulations }} />
+                <CongratulationDialog {...{ showCongratulations, setShowCongratulations, level }} />
         </div>
     </>
     )

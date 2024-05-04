@@ -1,12 +1,11 @@
 
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { CheckIcon } from "@heroicons/react/16/solid";
-import { Box } from '@mui/material';
-import FormWithColorSelect from '@/components/colorDropdown'
+import Image from 'next/image';
 
 
-export default function CongratulationDialog({ showCongratulations, setShowCongratulations }) {
+
+export default function CongratulationDialog({ showCongratulations, setShowCongratulations, level }) {
 
 
     return (
@@ -37,27 +36,41 @@ export default function CongratulationDialog({ showCongratulations, setShowCongr
                             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                         >
                             <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all w-full max-w-lg p-5 py-6">
-                                <div>
-                                    <div className=" text-center">
-    
 
-                                        <Dialog.Title as="h3" className="text-base mb-3 font-semibold leading-6 text-gray-900">
-                                            Goed bezig!
-                                        </Dialog.Title>
-                                        
-                                        <Dialog.Description>
-                                            Je hebt je goed aan je ingeplande taken gehouden! Als beloning heb je een nieuwe badge ontgrendeld en is deze toegevoegd aan jouw verzameling.
+                                <div className="text-center text-green-700">
+
+                                    <Dialog.Title as="h3" className="text-2xl mb-3 font-bold leading-6 text-green-800">
+                                        Proficiat!
+                                    </Dialog.Title>
+
+                                    <Dialog.Description className="text-balance">
+                                        <p>
+                                            Je hebt je goed aan je ingeplande taken gehouden!
+                                        </p>
+                                        <p>
+                                            Als beloning heb je een nieuwe badge ontgrendeld en is deze toegevoegd aan jouw verzameling.
                                             Doe zo verder!
-                                        </Dialog.Description>
-                                        <button
-                                            type="button"
-                                            className="inline-flex justify-center rounded-md border border-transparent !bg-blue-100 px-4 py-2 mt-3 text-md font-medium text-blue-900 hover:!bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                                            onClick={() =>{setShowCongratulations(false)}}
-                                        >
-                                            Top!
-                                        </button>
+                                        </p>
 
+                                    </Dialog.Description>
+
+                                    <div className="flex flex-col w-full text-left mt-5 px-10 font-semibold">
+
+                                        Verkregen badge:
+                                        <div className="flex w-full justify-center my-3">
+                                            <Image alt="current" width={150} height={150} src={`/images/badgelvl${level}.png`} />
+                                        </div>
                                     </div>
+
+                                    <button
+                                        type="button"
+                                        className="inline-flex justify-center rounded-md border w-[60%] border-transparent !bg-green-100 py-2 mt-3 text-md font-medium text-green-900 hover:!bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
+                                        onClick={() => { setShowCongratulations(false) }}
+                                    >
+                                        Top!
+                                    </button>
+
+
                                 </div>
                             </Dialog.Panel>
                         </Transition.Child>
