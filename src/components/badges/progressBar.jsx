@@ -34,7 +34,7 @@ export default function ProgressBar({
     const [showProgressNumber, setShowProgressNumber] = useState(0)
     const [isConfettiVisible, setIsConfettiVisible] = useState(false);
     const [showCongratulations, setShowCongratulations] = useState(false);
-    const [level, setLevel] = useState(5);
+    const [level, setLevel] = useState(0);
     const [openCollection, setOpenCollection] = useState(false);
 
 
