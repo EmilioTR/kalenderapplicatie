@@ -15,7 +15,8 @@ import { EventSourceInput } from "@fullcalendar/core/index.js";
 import ShowListTodo from '@/components/showListTodo';
 import ProgressBar from '@/components/badges/progressBar';
 import data from '@/app/data/defaultEvents.json'
-
+import InfoIcon from '@mui/icons-material/Info';
+import Tooltip from '@mui/material/Tooltip';
 
 
 interface Todo {
@@ -148,7 +149,7 @@ export default function Home() {
   }
 
   const handleShowModal = (data: { event: { id: string } }) => {
-   //console.log(isListTodo)
+    //console.log(isListTodo)
     setShowDisplayModal(true)
     setSelectedTodo(allTodos.filter(todo => Number(todo.id) === Number(data.event.id))[0])
   }
@@ -164,7 +165,7 @@ export default function Home() {
   }
 
   const handleDelete = () => {
-    if(isListTodo){
+    if (isListTodo) {
       setTodos(todos.filter(todo => Number(todo.id) !== Number(idToDelete)))
     }
     setAllTodos(allTodos.filter(todo => Number(todo.id) !== Number(idToDelete)))
@@ -242,9 +243,9 @@ export default function Home() {
     setAllTodos([...allTodos, todo])
   }
 
-  const handleEventResize = (info : any) => {
+  const handleEventResize = (info: any) => {
 
-   // console.log(info.event)
+    // console.log(info.event)
 
     const updated = allTodos.find(events => Number(info.event.id) === Number(events.id))
     const newTodoList = allTodos.filter(events => Number(info.event.id) !== Number(events.id))
@@ -256,16 +257,16 @@ export default function Home() {
     // console.log(info.event.end)
     // console.log(info.event.allDay)
 
-    if(updated){
+    if (updated) {
       updated.start = info.event.start
       updated.end = info.event.end
       updated.allDay = info.event.allDay
-      
+
       setAllTodos([...newTodoList, updated])
     }
 
-    
-    
+
+
   }
 
   return (
@@ -279,7 +280,15 @@ export default function Home() {
             <div className="justify-self-start row-start-1">
 
               <h1 className="font-bold text-2xl text-gray-700 justify-self-start ">
-                Kalenderapp
+                <span>
+                  Kalenderapp
+                  <span> </span>
+                  <a href="https://docs.google.com/document/d/1KzoRbyrtnjOYZwipLKOASKP2WVXzVh2GSE9wU1WMx48/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+                    <Tooltip title="Handleiding">
+                      <InfoIcon className="text-md hover:text-gray-500" />
+                    </Tooltip>
+                  </a>
+                </span>
               </h1>
 
             </div>
@@ -371,13 +380,13 @@ export default function Home() {
             </div>
           </div>
 
-          <DeleteDialog {...{ showDeleteModal, setShowDeleteModal, handleDelete, handleCloseModal, setShowDisplayModal, setShowListTodoModal, isListTodo  }} />
+          <DeleteDialog {...{ showDeleteModal, setShowDeleteModal, handleDelete, handleCloseModal, setShowDisplayModal, setShowListTodoModal, isListTodo }} />
 
           <CreateTodoDialog {...{ newTodo, showCreateModal, setShowCreateModal, handleSubmit, handleChange, handleChangeDescr, handleCloseModal, handleAddToList, isListTodo, setIsListTodo, handleChangeColor, handleChangeDuration }} />
 
           <ShowTodoDialog {...{ selectedTodo, showDisplayModal, setShowDisplayModal, handleDeleteModal, setTodoAsDone }}></ShowTodoDialog>
 
-          <ShowListTodo {...{ selectedTodo, showListTodoModal, setShowListTodoModal, handleDeleteModal, handleCloseModal , closeShowListTodo}} />
+          <ShowListTodo {...{ selectedTodo, showListTodoModal, setShowListTodoModal, handleDeleteModal, handleCloseModal, closeShowListTodo }} />
 
           <BrainDumpDrawer {...{ openDrawer, setOpenDrawer }} />
 
