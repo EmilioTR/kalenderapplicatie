@@ -39,7 +39,7 @@ export default function Home() {
     { title: 'Fietsen', description: 'Voorbereiden op fietstoernooi, moet een fietstour van 20km fietsen onder de 40 minuten', id: 1, backgroundColor: '#3ac0cf', borderColor: "#3ac0cf", textColor: 'white', allDay: false, start: '', end: '', done: false, duration: 2 },
     { title: 'Cinema met Carlos', description: 'We gaan eindelijk Dune 2 gaan kijken!!! Lisan Al Gaiiiib!', id: 2, backgroundColor: '#8cb849', borderColor: "#8cb849", textColor: 'white', allDay: false, start: '', end: '', done: false, duration: 3 },
     { title: 'Taak Wiskunde II afwerken', description: 'Oefening 1.3 t.e.m. oef 3.3 afwerken. DEADLINE: 17/06', id: 3, backgroundColor: '#c9c426', borderColor: "#c9c426", textColor: 'white', allDay: false, start: '', end: '', done: false, duration: 4.5 },
-    { title: 'Maandelijkse checkup van oma bij het ziekenhuis', description: 'Moet oma voeren naar het ziekenhuis om haar bloed te laten checken --- verder is dit een beschrijving van de vijfde taak die eigelijk ook wel een zeer lange beschrijving heeft om de UI eens te testen want je weet nooit wat er kan gebeuren in het leven...', id: 5, backgroundColor: '#d63341', borderColor: "#d63341", textColor: 'white', allDay: false, start: '', end: '', done: false, duration: 2 },
+    { title: 'Maandelijkse checkup van oma bij het ziekenhuis', description: 'Moet oma voeren naar het ziekenhuis om haar bloed te laten checken. ', id: 5, backgroundColor: '#d63341', borderColor: "#d63341", textColor: 'white', allDay: false, start: '', end: '', done: false, duration: 2 },
   ])
 
 
@@ -338,7 +338,7 @@ export default function Home() {
 
               <div className="flex flex-row w-full justify-between">
                 <h1 className="font-bold text-lg text-center m-auto">
-                  In te plannen Todos&apos;
+                  In te plannen events
                 </h1>
                 <button className="hover:text-slate-500"
                   onClick={() => {

@@ -43,7 +43,7 @@ export default function CongratulationDialog({ showCongratulations, setShowCongr
                                         Proficiat!
                                     </Dialog.Title>
 
-                                    <Dialog.Description className="text-balance">
+                                    <Dialog.Description as="div" className="text-balance">
                                         <p>
                                             Je hebt je goed aan je ingeplande taken gehouden!
                                         </p>
