@@ -2,58 +2,59 @@ import { Editor } from "novel-lightweight";
 import { useState } from "react";
 
 export default function BrainDumpEditor() {
-  const [data, setData] = useState(`
+  const [data, setData] = useState('');
+//   (`
 
-  ## Dit is een plaats waar je kan schrijven wat je wil
+//   ## Dit is een plaats waar je kan schrijven wat je wil
 
-  ### **Het werkt zoals notion** 
+//   ### **Het werkt zoals notion** 
 
-  druk op de lijn hieronder en gebruik '/' voor commandos
+//   druk op de lijn hieronder en gebruik '/' voor commandos
 
 
 
-  Je kan ook gewoon in markdown typen als je dat kent, maar is niet verplicht
+//   Je kan ook gewoon in markdown typen als je dat kent, maar is niet verplicht
 
-  je kan je *elementen* selecteren en **bewerken** zoals je zelf dat wilt
+//   je kan je *elementen* selecteren en **bewerken** zoals je zelf dat wilt
 
-  - je kan dus ook bulletpoints maken onder andere
-  - Een ander puntje
+//   - je kan dus ook bulletpoints maken onder andere
+//   - Een ander puntje
 
-  of ook
+//   of ook
 
-  1. een numbered list maken
-  2. een tweede onderdeel
+//   1. een numbered list maken
+//   2. een tweede onderdeel
 
-  ## Zelfs een todo list
+//   ## Zelfs een todo list
 
-  - [ ] Vuilbakken buiten zetten
+//   - [ ] Vuilbakken buiten zetten
 
-  - [ ] katten eten geven
+//   - [ ] katten eten geven
 
-  - [ ] deze lijst checken
+//   - [ ] deze lijst checken
 
-  Je kan zelf code snippets hierin steken!
+//   Je kan zelf code snippets hierin steken!
 
-  \`\`\`
-  // Code snippet van deze drawer
-  <Drawer> 
-    <Sheet>
-      <ModalClose />
-      <DialogTitle> Brain Dump</DialogTitle>
-        <Divider />
-        <DialogContent>
-          <BrainDumpEditor/>
-        </DialogContent>   
-    </Sheet>
-  </Drawer>
-  \`\`\`
-`);
+//   \`\`\`
+//   // Code snippet van deze drawer
+//   <Drawer> 
+//     <Sheet>
+//       <ModalClose />
+//       <DialogTitle> Brain Dump</DialogTitle>
+//         <Divider />
+//         <DialogContent>
+//           <BrainDumpEditor/>
+//         </DialogContent>   
+//     </Sheet>
+//   </Drawer>
+//   \`\`\`
+// `);
 
   return (
     <Editor
       className="rounded-md bg-slate-50 border border-slate-200"
       defaultValue={data}
-      disableLocalStorage={true}
+      disableLocalStorage={false}
       onUpdate={(editor) => {
         setData(editor?.storage.markdown.getMarkdown());
       }}
