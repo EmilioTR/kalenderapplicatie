@@ -5,6 +5,8 @@ import DialogContent from '@mui/joy/DialogContent';
 import Sheet from '@mui/joy/Sheet';
 import Divider from '@mui/joy/Divider';
 import BrainDumpEditor from '@/components//braindump/brainDumpEditor'
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 
 export default function BrainDumpDrawer({ openDrawer, setOpenDrawer }) {
@@ -42,6 +44,11 @@ export default function BrainDumpDrawer({ openDrawer, setOpenDrawer }) {
                 <DialogTitle className="text-violet-800" >Brain Dump</DialogTitle>
                 <Divider sx={{ mt: 'auto', background: 'darkviolet' }} />
                 <DialogContent>
+                    <div className='flex flex-row justify-between w-full p-2'>
+                        <ChevronLeftIcon />
+                        <p className='pb-2'>Vandaag</p>
+                        <ChevronRightIcon />
+                    </div>
                     <BrainDumpEditor />
                 </DialogContent>
             </Sheet>
